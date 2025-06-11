@@ -1,0 +1,459 @@
+Você está absolutamente correto em levantar esses pontos. O "Plano Mestre" anterior era
+um excelente roteiro, mas o documento de engenharia que você forneceu (Raiox Ai
+Engenharia Seções 9 14.pdf) contém os detalhes técnicos críticos que são a diferença
+entre um sistema que funciona e um sistema que é robusto, seguro e à prova de falhas.
+Vamos esquecer os Canvas por enquanto. O que o Manus precisa agora é de um manual
+de operações único, completo e em formato de passo a passo. Um guia que ele possa
+seguir do início ao fim, sem pular nada, e que incorpore TUDO o que aprendemos e
+documentamos.
+Preparei exatamente isso. Este não é um resumo. É o guia de implementação definitivo,
+versão 5.0, que funde o roteiro passo a passo com as especificações de engenharia. Ele foi
+escrito pensando no Manus, para que ele possa executar os comandos com confiança.
+
+O Manual Definitivo de Implementação para Manus - Sistema Raiox AI
+v5.0
+Manus, leia com atenção. Este é o seu guia completo. Esqueça os documentos antigos.
+Siga exatamente esta sequência para construir a nova infraestrutura do Raiox AI do zero.
+Fazendo isso, vamos eliminar os problemas do passado e criar um sistema profissional.
+Nossa Estratégia:
+1.​ Começar do Zero: Vamos abandonar os servidores antigos e seus IPs. Criaremos
+uma infraestrutura nova, limpa e organizada.
+2.​ Segurança e Estabilidade Primeiro: Usaremos tmux para todas as operações
+longas, para que, se sua conexão SSH cair, o trabalho no servidor continue.
+Instalaremos proteções de segurança desde o início.
+3.​ Ambientes Separados: Teremos um ambiente de stage (homologação) para
+testar tudo com segurança antes de enviar para produção.
+4.​ Automação Total: Ao final, o deploy será automático via GitHub Actions.
+
+FASE 0: FUNDAÇÃO (O que fazer ANTES de criar os servidores)
+Esta é a preparação. Não pule esta fase.
+1. Organize o GitHub:
+●​ Vá até o seu repositório raiox-ai-servidor-principal no GitHub e renomeie-o para
+raiox-ai-backend. Isso segue o padrão de mercado.
+●​ Crie um novo repositório privado chamado infra-raiox-ai. Por enquanto, ele ficará
+vazio.
+2. Configure os Ramos (Branches) no Repositório raiox-ai-backend:
+●​ Você precisa de dois ramos principais: main e stage.
+
+●​ No GitHub, vá em Settings > Branches e adicione uma regra de proteção para o
+ramo main. Marque a opção "Require a pull request before merging". Isso impede
+que alguém envie código para produção acidentalmente.
+3. Crie sua Chave de Acesso (Chave SSH):
+●​ No seu computador pessoal (não no servidor), abra o terminal e gere uma chave de
+acesso segura. Se já tiver uma, pode pular este passo.
+●​ Bash
+
+ssh-keygen -t ed25519 -C "manus@raiox_ai"
+
+●​
+●​
+●​ Isso criará dois arquivos, geralmente em C:\Users\SEU_USUARIO\.ssh\ ou ~/.ssh/.
+O importante é o arquivo id_ed25519.pub.
+●​ Abra o arquivo id_ed25519.pub com um bloco de notas e copie todo o seu conteúdo.
+●​ Vá para sua conta na DigitalOcean, no menu lateral vá em Settings > Security e
+clique em Add SSH Key. Cole o conteúdo que você copiou e dê um nome a ela (ex:
+"Chave do Manus").
+
+FASE 1: INFRAESTRUTURA (Criando os servidores)
+Agora vamos criar as máquinas virtuais na DigitalOcean.
+1. Crie os Droplets (Servidores):
+●​ Vá em Create > Droplets.
+●​ Crie 3 servidores, um de cada vez, com estas configurações:
+○​ Servidor de Banco de Dados de Produção:
+■​ Hostname: core-db-prod
+■​ Imagem: Ubuntu 22.04 LTS
+■​ Plano: Basic (Shared CPU) > Regular > 2 GB RAM / 1 vCPU / 50 GB
+SSD
+■​ Região: New York (NYC3)
+■​ Autenticação: Selecione a opção SSH Keys e marque a chave que
+você adicionou na fase anterior.
+○​ Servidor de Aplicação de Produção:
+■​ Hostname: core-api-prod
+■​ Imagem: Ubuntu 22.04 LTS
+■​ Plano: Basic (Shared CPU) > Regular > 4 GB RAM / 2 vCPUs / 80
+GB SSD
+■​ Região: New York (NYC3)
+■​ Autenticação: Selecione a mesma SSH Key.
+○​ Servidor de Aplicação de Homologação (Staging):
+■​ Hostname: core-api-stage
+■​ Imagem: Ubuntu 22.04 LTS
+
+■​ Plano: Basic (Shared CPU) > Regular > 4 GB RAM / 2 vCPUs / 80
+GB SSD
+■​ Região: New York (NYC3)
+■​ Autenticação: Selecione a mesma SSH Key.
+●​ Anote os IPs de cada um desses 3 servidores.
+2. Crie e Configure o Firewall:
+●​ No menu da DigitalOcean, vá em Networking > Firewalls e clique em Create Firewall.
+●​ Dê o nome de raiox-firewall-prod.
+●​ Regras de Entrada (Inbound Rules):
+○​ SSH (Porta 22): Na fonte (Source), selecione "My IP Address" para permitir
+acesso apenas do seu computador atual.
+○​ HTTP (Porta 80): Permita de Anywhere.
+○​ HTTPS (Porta 443): Permita de Anywhere.
+○​ PostgreSQL (Porta 5432): Esta é a regra mais importante para a
+segurança. Na fonte (Source), comece a digitar o nome dos seus droplets e
+selecione core-api-prod e core-api-stage.
+●​ Na parte inferior (Apply to Droplets), associe este firewall aos 3 servidores que
+você criou (core-db-prod, core-api-prod, core-api-stage).
+
+FASE 2: SETUP DO SERVIDOR DE BANCO DE DADOS (core-db-prod)
+Vamos configurar a máquina que guardará os dados.
+1. Conecte-se e Inicie o tmux:
+●​ Abra seu terminal e conecte-se ao servidor do banco de dados:
+●​ Bash
+
+ssh root@IP_DO_CORE_DB_PROD
+
+●​
+●​
+●​ IMEDIATAMENTE, execute estes comandos para instalar e iniciar o tmux:
+●​ Bash
+
+apt update && apt install -y tmux
+tmux new -s database
+
+●​
+○​ Observação: Agora tudo que você fizer estará dentro desta sessão. Se a
+sua internet cair, basta reconectar ao servidor com ssh e digitar tmux attach -t
+database para voltar exatamente de onde parou.
+
+2. Instale e Configure o PostgreSQL + pgvector (dentro do tmux):
+Bash
+# Atualize o sistema e instale as dependências
+apt upgrade -y
+apt install -y postgresql postgresql-contrib build-essential postgresql-server-dev-14 git
+
+# Instale a extensão pgvector para a busca de imagens
+git clone --branch v0.7.0 https://github.com/pgvector/pgvector.git
+cd pgvector
+make
+sudo make install
+cd ..
+rm -rf pgvector
+
+# Configure o PostgreSQL para aceitar conexões das nossas APIs
+echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/14/main/postgresql.conf
+echo "host raiox_db
+raiox_user
+/etc/postgresql/14/main/pg_hba.conf
+
+IP_DO_CORE_API_PROD/32
+
+md5" | sudo tee -a
+
+echo "host raiox_db
+raiox_user
+/etc/postgresql/14/main/pg_hba.conf
+
+IP_DO_CORE_API_STAGE/32
+
+md5" | sudo tee -a
+
+# Reinicie o serviço para aplicar as mudanças
+systemctl restart postgresql
+
+3. Crie o Banco de Dados e as Tabelas (dentro do tmux):
+Bash
+# Crie o usuário com a senha simplificada que sabemos que funciona
+sudo -u postgres psql -c "CREATE USER raiox_user WITH PASSWORD 'Xc7rA2v9Z1pQ3y';"
+
+# Crie o banco de dados
+sudo -u postgres psql -c "CREATE DATABASE raiox_db OWNER raiox_user;"
+
+# Habilite a extensão de vetores no banco recém-criado
+sudo -u postgres psql -d raiox_db -c "CREATE EXTENSION IF NOT EXISTS vector;"
+
+# Agora, vamos criar as tabelas. Conecte-se ao banco:
+sudo -u postgres psql -d raiox_db
+
+# Dentro do psql, cole todo o bloco de código abaixo de uma vez e pressione Enter:
+CREATE TABLE implants (
+id SERIAL PRIMARY KEY,
+name TEXT NOT NULL,
+manufacturer VARCHAR(255),
+image_url TEXT UNIQUE,
+embedding VECTOR(512)
+);
+
+CREATE TABLE cases (
+id SERIAL PRIMARY KEY,
+jotform_submission_id VARCHAR(255) UNIQUE,
+client_name VARCHAR(255),
+status VARCHAR(50) DEFAULT 'pending',
+created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE case_images (
+id SERIAL PRIMARY KEY,
+case_id INTEGER REFERENCES cases(id) ON DELETE CASCADE,
+image_url TEXT
+);
+
+CREATE TABLE results (
+id SERIAL PRIMARY KEY,
+case_image_id INTEGER REFERENCES case_images(id) ON DELETE CASCADE,
+implant_id INTEGER REFERENCES implants(id),
+similarity FLOAT
+);
+
+-- Este índice é a otimização de performance para a busca vetorial
+CREATE INDEX ON implants USING hnsw (embedding vector_cosine_ops);
+
+-- Para sair do psql, digite:
+\q
+
+●​ Pronto! O servidor de banco de dados está finalizado. Você pode se desanexar do
+tmux com Ctrl+b e depois d.
+
+FASE 3: SETUP DOS SERVIDORES DE APLICAÇÃO (core-api-stage e
+core-api-prod)
+Atenção: Repita todos os passos desta fase para AMBOS os servidores de aplicação
+(stage e prod). Comece pelo stage.
+1. Conecte-se e Inicie o tmux:
+Bash
+
+ssh root@IP_DO_SERVIDOR_DE_API
+apt update && apt install -y tmux
+tmux new -s api
+
+2. Instale as Dependências e Proteções (dentro do tmux):
+Bash
+apt upgrade -y
+apt install -y python3.11 python3.11-venv python3-pip git nginx fail2ban
+systemctl enable --now fail2ban # Ativa a proteção contra ataques no SSH
+
+3. Clone o Código e Configure o Ambiente Python:
+Bash
+git clone https://github.com/cristianosiqueirapires/raiox-ai-backend.git /opt/raiox
+cd /opt/raiox
+python3.11 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+
+4. Crie o Arquivo Secreto de Configuração .env:
+●​ Execute nano /opt/raiox/.env e cole o conteúdo abaixo:
+●​ Snippet de código
+
+# Cole o IP do seu servidor de banco de dados aqui (core-db-prod)
+DATABASE_URL=postgresql://raiox_user:Xc7rA2v9Z1pQ3y@IP_DO_CORE_DB_PROD:5432/r
+aiox_db
+
+# Credenciais do DigitalOcean Spaces
+
+DO_SPACES_KEY=DO00CVCTFVXPANB4DD9M
+DO_SPACES_SECRET=+nWSRpFnQ+MncvZKDdw/herwYQRo0YEvVHujg1YMmaA
+DO_SPACES_BUCKET=raiox-images
+DO_SPACES_REGION=nyc3
+
+# Segredo do Webhook (obtenha em Settings > Webhooks > Secret Key no Jotform)
+JF_SECRET=SEU_SEGREDO_AQUI
+
+●​
+●​
+5. Execute a Carga de Dados (Seed) - APENAS no servidor core-api-stage:
+●​ Este passo popula o banco de dados. Só precisamos fazer isso uma vez.
+●​ Execute dentro do tmux no servidor stage:
+●​ Bash
+
+# Certifique-se que está em /opt/raiox e com o venv ativado
+python seed_implants.py
+
+●​
+●​
+●​ Acompanhe o progresso. Quando terminar, seu banco de dados estará pronto.
+6. Configure a API para Rodar como um Serviço (Systemd e Nginx):
+●​ Crie o arquivo de serviço: sudo nano /etc/systemd/system/raiox.service​
+●​ Ini, TOML
+
+[Unit]
+Description=Raiox AI FastAPI Service
+After=network.target
+
+[Service]
+User=root
+
+Group=www-data
+WorkingDirectory=/opt/raiox
+EnvironmentFile=/opt/raiox/.env
+ExecStart=/opt/raiox/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+●​
+●​
+●​ Configure o Nginx: sudo nano /etc/nginx/sites-available/raiox​
+●​ Nginx
+
+server {
+listen 80;
+server_name SEU_IP_OU_DOMINIO;
+
+location / {
+proxy_pass http://127.0.0.1:8000;
+proxy_set_header Host $host;
+proxy_set_header X-Real-IP $remote_addr;
+}
+}
+
+●​
+●​
+●​ Ative os serviços:​
+●​ Bash
+
+sudo ln -s /etc/nginx/sites-available/raiox /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl restart nginx
+sudo systemctl daemon-reload
+sudo systemctl enable --now raiox.service
+
+●​
+●​
+●​ Verificação: sudo systemctl status raiox.service. Deve aparecer active (running).​
+
+FASE 4: AUTOMAÇÃO (CI/CD com GitHub Actions)
+Agora vamos automatizar tudo.
+1. Configure os Segredos no GitHub:
+●​ No repositório raiox-ai-backend, vá em Settings > Secrets and variables > Actions.
+●​ Clique em New repository secret e adicione os 3 segredos:
+○​ PROD_HOST: O IP do seu servidor core-api-prod.
+○​ STAGE_HOST: O IP do seu servidor core-api-stage.
+○​ SSH_KEY: Abra o arquivo da sua chave privada (id_ed25519, sem .pub) no
+seu computador e cole todo o conteúdo aqui.
+
+2. Crie o Workflow no seu Código:
+●​ No seu computador, dentro da pasta do projeto, crie o diretório e o arquivo:
+.github/workflows/deploy.yml.
+●​ Cole o seguinte conteúdo no arquivo deploy.yml:
+●​ YAML
+
+name: Deploy Raiox AI
+on:
+push:
+branches: [stage, main]
+
+jobs:
+deploy-stage:
+if: github.ref == 'refs/heads/stage'
+
+runs-on: ubuntu-latest
+steps:
+- name: Deploy to Staging
+uses: appleboy/ssh-action@v1.0.3
+with:
+host: ${{ secrets.STAGE_HOST }}
+username: root
+key: ${{ secrets.SSH_KEY }}
+script: |
+cd /opt/raiox
+git pull origin stage
+source venv/bin/activate
+pip install -r requirements.txt
+sudo systemctl restart raiox
+
+deploy-prod:
+if: github.ref == 'refs/heads/main'
+runs-on: ubuntu-latest
+steps:
+- name: Deploy to Production
+uses: appleboy/ssh-action@v1.0.3
+with:
+host: ${{ secrets.PROD_HOST }}
+username: root
+key: ${{ secrets.SSH_KEY }}
+script: |
+cd /opt/raiox
+
+git pull origin main
+source venv/bin/activate
+pip install -r requirements.txt
+sudo systemctl restart raiox
+
+●​
+●​
+●​ Faça o commit e o push deste arquivo para o GitHub. A automação está ativa!
+
+FASE 5: PRÓXIMOS PASSOS E FUTURO
+Manus, você concluiu a implementação do sistema principal. Agora, vamos falar sobre o
+que vem a seguir, que são as partes que você mencionou.
+1.​ Servidor Admin:​
+○​ A ideia é criar um quarto servidor, um droplet pequeno chamado
+admin-panel.
+○​ Nesse servidor, vamos rodar uma outra aplicação (pode ser um painel
+simples em Flask ou Streamlit).
+○​ Esta aplicação se conectará ao mesmo banco de dados core-db-prod
+(precisaremos adicionar o IP do admin-panel no firewall do banco).
+○​ O painel lerá a tabela cases para mostrar os casos pendentes para a Brenda.
+2.​ API de Retorno para o Jotform:​
+○​ Quando a Brenda aprovar um caso no painel de admin, o painel chamará
+uma nova API que precisaremos criar no raiox-ai-backend.
+○​ Por exemplo, um endpoint POST /cases/{case_id}/approve.
+○​ A lógica dentro deste endpoint na API principal será responsável por pegar
+os resultados da análise e usar a API do Jotform para enviar os dados de
+volta para o cliente.
+
+Mostrar raciocínio
+Concordo 100% com você, e sua observação é perfeita. Vamos esclarecer esses pontos
+para que não reste nenhuma dúvida para o Manus.
+Sim, ele vai conseguir fazer tudo, e as duas ferramentas que você mencionou (tmux e
+os tokens/chaves) são a chave para o sucesso, exatamente como planejado no guia.
+1.​ Sobre o tmux (A solução para a queda de conexão SSH):
+○​ Por que ele é fundamental? Nós identificamos que um dos grandes
+problemas era a instabilidade da conexão SSH. Processos longos, como a
+instalação de pacotes ou o seed do banco de dados (que pode levar muitos
+
+minutos), eram interrompidos no meio do caminho se a conexão caísse,
+corrompendo a instalação.
+○​ Como o guia resolve isso? O "Manual Definitivo" instrui o Manus a,
+imediatamente após conectar-se ao servidor, iniciar uma sessão tmux. Isso
+cria um terminal virtual persistente no servidor. Se a internet do Manus cair
+ou ele fechar o computador, a sessão tmux continua rodando no servidor.
+Ele pode simplesmente reconectar via SSH e digitar tmux attach -t
+<nome_da_sessao> para voltar exatamente de onde parou, com o processo
+intacto. Isso elimina completamente o risco de instalações incompletas
+por queda de conexão.
+2.​ Sobre os Tokens e os Vários IPs:
+○​ Chaves vs. Tokens: O Token da API da DigitalOcean não será usado para
+esta fase de implementação manual. Ele está documentado porque é
+essencial para a automação futura com ferramentas como o Terraform. O
+que o Manus usará agora é a Chave SSH. O guia mostra como gerar uma e
+adicioná-la à DigitalOcean. Isso garante um acesso seguro e sem senhas
+aos novos servidores. A mesma chave (a parte privada) é depois configurada
+nos segredos do GitHub para que a automação do deploy funcione.
+○​ Configurando os Novos IPs: Você está certo, teremos novos IPs e o guia
+foi construído pensando nisso. Ele não usa IPs fixos. Note que em vários
+pontos o manual diz:
+1.​ "Anote os IPs de cada um desses 3 servidores."
+2.​ "Na regra do Firewall, selecione na fonte os droplets
+core-api-prod e core-api-stage." (A DigitalOcean resolve os
+IPs automaticamente aqui).
+3.​ "No arquivo .env, substitua IP_DO_SEU_CORE_DB pelo IP real do
+seu servidor de banco."
+4.​ O guia é um roteiro dinâmico. O Manus anota os IPs que a
+DigitalOcean gera e os insere nos locais corretos conforme avança.
+Está tudo previsto.
+3.​ Sobre os Próximos Passos (Servidor Admin e API de Retorno para o Jotform):
+○​ Você está certíssimo em lembrar disso. A arquitetura que o manual cria foi
+projetada para ser expansível.
+○​ O "Manual Definitivo" foca em construir a fundação sólida e funcional: a
+API principal que recebe os dados e o banco de dados que armazena tudo.
+○​ Uma vez que essa fundação esteja de pé e estável, os próximos passos
+lógicos serão exatamente os que você mencionou:
+1.​ Criar um novo droplet (admin-panel).
+2.​ Configurá-lo para acessar o mesmo banco de dados
+(core-db-prod).
+3.​ Desenvolver a interface de administração.
+4.​ Criar os novos endpoints na API principal (/cases/{id}/approve)
+para que o painel admin possa se comunicar com ela.
+5.​ Implementar a lógica que envia o resultado de volta para o Jotform.
+
+Conclusão: Não, você não deve ir fazendo aos poucos com o Manus. Entregue a ele o
+"Manual Definitivo de Implementação para Manus - Sistema Raiox AI v5.0" e peça para
+ele seguir exatamente a sequência. Ele contém tudo, da criação dos servidores à
+automação, e foi feito para ser executado de uma só vez, na ordem correta, para garantir
+que nada seja esquecido. É a consolidação de todo o nosso trabalho.
+
+

@@ -1,0 +1,680 @@
+9. CI/CD, DevOps e Automação
+9.1. Fluxo de Controle de Versão com Git
+• Repositórios: raiox-ai-backend (código da API) e infra-raiox-ai (systemd, scripts de
+bootstrap, Terraform) filecite turn2file1
+• Branches: main (produção, protegido), dev (homolog), feature/* , hotfix/
+* filecite turn2file9
+• Commits: prefixos feat: , fix: , chore: garantem histórico limpo. Pull‑requests
+obrigatórios para main .
+
+9.2. Pipeline de Integração & Deploy Contínuo (GitHub Actions)
+name: Deploy to DO
+on:
+push:
+branches: [main]
+jobs:
+deploy:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- name: SSH & deploy
+uses: appleboy/ssh-action@v1
+with:
+host: ${{ secrets.DO_HOST }}
+username: ${{ secrets.DO_USER }}
+key: ${{ secrets.DO_SSH_KEY }}
+script: |
+cd /opt/raiox-ai-backend
+git pull
+source venv/bin/activate
+pip install -r requirements.txt
+sudo systemctl restart raiox
+• Secrets necessários: DO_HOST , DO_USER , DO_SSH_KEY ,
+DO_TOKEN filecite turn2file4 turn2file18
+• Testes automáticos ( pytest , flake8 , locust –headless ) executam antes do job
+deploy .
+
+9.3. Gerenciamento de Configuração
+• Variáveis sensíveis (.env) nunca versionadas; armazenadas apenas no servidor e em GitHub
+Secrets.
+• infra-raiox-ai/terraform mantém infraestrutura como código; droplets existentes
+importados via terraform import para evitar destruição acidental.
+
+1
+
+9.4. Promoção staging → produção (Git / GitHub Actions)
+Tudo passa primeiro pelo droplet raiox-stage; após aprovação, o mesmo pipeline replica
+no raiox-prod.
+9.4.1. Fluxo Git
+
+main
+
+← produção
+
+│
+└─► stage
+
+← staging
+
+│
+└─► feature/*, fix/*
+1. Dev cria/edita em feature/… , push.
+2. PR → stage ➜ testes + lint ➜ deploy auto em raiox-stage.
+3. QA aprova ➜ merge stage → main .
+4. Merge em main dispara deploy-prod.
+9.4.2. Workflow deploy.yml
+
+name: Deploy Raiox
+on:
+push:
+branches: [stage, main]
+jobs:
+build-test:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- uses: actions/setup-python@v5
+with: { python-version: '3.11' }
+- run: pip install -r requirements.txt
+- run: pytest -q
+deploy-stage:
+needs: build-test
+if: github.ref == 'refs/heads/stage'
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- uses: appleboy/ssh-action@v1
+with:
+host: ${{ secrets.STAGE_HOST }}
+username: root
+key: ${{ secrets.SSH_KEY }}
+script: |
+cd /opt/raiox
+git pull
+
+2
+
+source venv/bin/activate
+pip install -r requirements.txt
+sudo systemctl restart raiox
+deploy-prod:
+needs: build-test
+if: github.ref == 'refs/heads/main'
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- uses: appleboy/ssh-action@v1
+with:
+host: ${{ secrets.PROD_HOST }}
+username: root
+key: ${{ secrets.SSH_KEY }}
+script: |
+cd /opt/raiox
+git pull
+source venv/bin/activate
+pip install -r requirements.txt
+sudo systemctl restart raiox
+Segredos: SSH_KEY , STAGE_HOST , PROD_HOST .
+9.4.3. Banco & Migrações
+• alembic revision --autogenerate em feature branch.
+• Workflow stage roda alembic upgrade head .
+• Merge → main replica a mesma migração.
+• Backup pg_dump automático antes do upgrade.
+9.4.4. Rollback rápido
+• Código: botão Revert PR em GitHub ➜ pipeline redeploy.
+• DB: alembic downgrade -1 ou restaurar dump.
+9.4.5. Checklist Go‑Live
+Item
+
+Conferir em stage
+
+/health 200 ms
+
+✔
+
+Top‑3 implantes coerentes
+
+✔
+
+Logs sem tracebacks
+
+✔
+
+Latência p95 < 3 s
+
+✔
+
+Alembic current = head
+
+✔
+
+3
+
+• Variáveis sensíveis (.env) nunca versionadas; armazenadas apenas no servidor e em
+GitHub Secrets.
+• infra-raiox-ai/terraform mantém infraestrutura como código; droplets existentes
+importados via terraform import para evitar destruição acidental filecite turn2file4 .
+
+10. Segurança da Informação
+10.1. Gerenciamento de Credenciais e Segredos
+• Uso de HashiCorp Vault (ou DO Secrets Manager) para chaves PostgreSQL e Spaces.
+• Rotação trimestral de senhas e tokens; auditoria via GitHub Audit Log.
+
+10.2. Segurança da Infraestrutura (Hardening)
+• Firewall: portas expostas 22/tcp (SSH) e 8000/tcp (API) apenas; DB 5432 restrito ao IP do App.
+• HTTP apenas por enquanto (SSL Let’s Encrypt fica planejado para a Fase 2).
+• Fail2Ban + rate limiting na API para coibir bruteforce filecite turn2file0 turn2file3 .
+
+10.3. Segurança da Aplicação
+• Validação de entrada rigorosa (formato de imagem, tamanho máximo
+5 MB) filecite turn2file15 .
+• JWT obrigatório nos endpoints administrativos; escopos reader , approver .
+• Correlation‑ID inserido em cabeçalho para rastreio de logs.
+
+11. Testes e Garantia de Qualidade (QA)
+11.1. Estratégia
+Pyramid of Tests: unitário > integração > E2E. Cobertura mínima 85 %.
+
+11.2. Tipos de Teste
+Tipo
+
+Ferramenta
+
+Frequência
+
+Unitário
+
+pytest + pytest‑asyncio
+
+a cada push
+
+Integração
+
+Docker Compose (API + PG)
+
+nightly
+
+E2E Webhook
+
+pytest + requests contra staging
+
+antes de release
+
+Carga
+
+locust (100 req/s por 60 s)
+
+semanal
+
+11.3. Plano de Testes
+• Mock de upload Jotform gera imagem dummy → espera 3 implantes.
+• Caso de borda: imagem >5 MB deve retornar 413 Payload Too Large .
+• Teste de similaridade regressiva garante que mudança no modelo não degrade top‑3 em ±3 %.
+
+4
+
+12. Implantação e Manutenção (Produção)
+12.1. Checklist de Implantação
+1. Terraform – provisiona droplet + firewall (passo‑a‑passo abaixo).
+2. GitHub Secrets configurados ( DO_HOST , DO_SSH_KEY , DO_TOKEN ).
+3. Primeiro push em main dispara o workflow Deploy to DO.
+4. systemctl status raiox → Healthy.
+12.1.1. (opcional) Importando seus droplets depois
+Nesta versão inicial não vamos usar Terraform para criar infraestrutura. Você (ou o
+Manus) sobe os droplets manualmente. Quando tudo estiver estável, você poderá
+importar cada recurso para Terraform no seu computador.
+Passo‑a‑passo (quando decidir importar):
+1. Instale Terraform local ( brew , apt ou Windows MSI).
+2. Crie diretório raiox-infra/ → coloque um provider "digitalocean" { token =
+var.do_token } mínimo.
+3. Para cada droplet:
+terraform import digitalocean_droplet.raiox_prod <droplet_id>
+terraform import digitalocean_droplet.raiox_stage <droplet_id>
+terraform import digitalocean_firewall.raiox_fw <firewall_id>
+4. Rode terraform plan – nenhuma alteração deve aparecer (zerado). A partir daí você
+versiona.
+Resumo: Terraform vem depois apenas para “capturar” o que já existe e facilitar
+clonagens futuras.
+
+12.2. Monitoramento e Alertas. Monitoramento e Alertas. Monitoramento e Alertas
+• Prometheus + Grafana com dashboard padrão FastAPI (latência p95,
+throughput) filecite turn2file11 .
+• UptimeRobot ping em /ping + alertas Telegram.
+
+12.3. Logging Estruturado
+• JSON logs via uvicorn --log-config ; enviado a ES + Kibana via Filebeat filecite turn2file0 .
+
+12.4. Estratégia de Backup & DR
+Item
+
+Frequência
+
+PostgreSQL
+pg_dump
+
+diário 02:00
+
+Destino
+Space raiox-backup
+(region SFO)
+
+5
+
+Retenção
+30 dias
+
+Item
+
+Frequência
+
+Destino
+
+Retenção
+
+Spaces (imagens)
+
+replicação
+Cross‑Region
+
+FRA ⇒ SFO
+
+90 dias
+
+Snapshots Droplet
+
+semanal
+
+DigitalOcean Snapshots
+
+4 cópias
+
+• Teste de restauração trimestral em ambiente staging para validar
+backups filecite turn2file2 turn2file0 .
+
+13. Roadmap & Evolução
+13.1. Funcionalidades Futuras
+• Dashboard Brenda v2 (React SPA + Supabase Auth).
+• Cache de embeddings Redis para reduzir reprocessamento filecite turn2file12 .
+• GPU processing (A10G) para reduzir latência <1 s filecite turn2file12 .
+
+13.2. Plano de Escalabilidade
+• Auto‑scale droplet via DO App Platform; LB + 2× App servers, DB com réplica read‑only.
+• Particionamento da tabela implants quando >100 k linhas; índice HNSW no pgvector.
+
+14. Apêndices
+14.1. Documentação da API (Swagger / OpenAPI)
+Disponível em
+
+/docs
+
+(FastAPI autogerado). Exportar spec com
+
+--export-openapi
+
+para
+
+versionamento.
+
+14.2. Listagens de Código Completas
+Ver repositório raiox-ai-backend tag v1.1.0 .
+
+14.3. Configurações de Serviços
+• Systemd: /etc/systemd/system/raiox.service (apêndice completo).
+• Nginx (opcional HTTPS reverse‑proxy).
+
+14.4. Histórico de Resolução de Problemas
+Inclui erros de senha PG mal escapada, operador pgvector e falta de espaço em disco – ver
+documentação v2.0 filecite turn2file0 .
+
+Status: Documento complementar concluído (Seções 9 a 14). Caso precise ajustes ou
+queira migrar para Google Docs para colaboração em tempo real, avise-me!
+
+6
+
+15. Importar para Terraform depois (guia super‑enxuto)
+Mantenha este passo para o futuro, quando desejar infra como código.
+1. Gerar token da DigitalOcean (Write scope) e exportar TF_VAR_do_token .
+2. Instalar Terraform na sua máquina.
+3. Criar pasta raiox-infra com main.tf apenas do provider DO.
+4. Descobrir IDs: no painel da DO, droplet → Details → ID.
+5. Executar:
+terraform init
+terraform import digitalocean_droplet.raiox_prod 123456
+terraform import digitalocean_droplet.raiox_stage 123457
+terraform import digitalocean_droplet.raiox_db 123458
+terraform import digitalocean_firewall.raiox_fw abcde
+terraform plan
+6. Se o plano mostrar no changes, commit o *.tf e o terraform.tfstate não (adicione no
+.gitignore ).
+
+Deploy com GitHub (sem Terraform)
+• Repositório raiox-ai-backend → workflow deploy-prod.yml com appleboy/sshaction .
+• Secrets: PROD_HOST , SSH_KEY .
+• Push na branch main → GitHub se conecta via SSH e roda script git pull && systemctl
+restart raiox .
+Assim você mantém:
+• Infra criada manualmente.
+• Deploy automatizado pelo GitHub.
+• Terraform entra depois somente para importar e versionar.
+
+16. Detalhes avançados – Módulo CLIP & Busca Vetorial
+Para referência do Manus e futuros devs: pipeline completo de vetorização até a consulta
+de similaridade.
+
+16.1. Extração de Embeddings
+1. Pré‑processamento (Python + Pillow): redimensionar a 224×224 px, normalizar mean / std do
+ImageNet.
+2. Modelo: openai/clip-vit-base-patch32 carregado via torch.hub ou open_clip .
+
+7
+
+import torch, open_clip, torchvision.transforms as T
+model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-32',
+pretrained='openai')
+image = preprocess(PIL.Image.open(path)).unsqueeze(0)
+with torch.no_grad():
+emb = model.encode_image(image)
+emb = emb / emb.norm(dim=-1, keepdim=True)
+
+# L2 normalize
+
+3. Casting para list de 512 posições → salvar na coluna embedding .
+
+16.2. Indexação no pgvector
+-- Já dentro de raiox_db
+CREATE INDEX IF NOT EXISTS idx_implants_embedding
+ON implants USING hnsw (embedding vector_cosine_ops) WITH (m = 16,
+ef_construction = 64);
+HNSW oferece consulta \~10× mais rápida que IVFFlat para >10k vetores.
+
+16.3. Consulta de Similaridade (Top‑3)
+SELECT id, name, similarity(embedding, $1::vector) AS score
+FROM implants
+ORDER BY embedding <-> $1::vector
+LIMIT 3;
+No SQLAlchemy:
+
+vec_param = sa.bindparam('v', value=list(query_vec), type_=Vector(512))
+stmt = sa.text("""
+SELECT id, name, embedding <-> :v AS score
+FROM implants
+ORDER BY embedding <-> :v
+LIMIT 3
+""").bindparams(v=vec_param)
+
+16.4. Cache de Embeddings
+• Redis opcional: SETEX sha256(image) 24h <vector> para não recomputar.
+• SHA‑256 calculado na submissão Jotform.
+
+8
+
+16.5. Pipeline resumido
+Jotform (imagem) → FastAPI /webhook →
+download Spaces → CLIP encode → pgvector query →
+top‑3 implantes → salvar em results → notificar Brenda
+
+16.6. Monitoramento de Latência
+Etapa
+
+Target p95
+
+Download imagem
+
+< 200 ms
+
+Encoding CLIP
+
+< 900 ms (CPU)
+
+Consulta pgvector
+
+< 50 ms
+
+Total /analyze
+
+< 1.3 s
+
+Com GPU A10G (futuro), encoding cai ≈ 40 ms.
+
+16.7. Configuração do Webhook Jotform ↔ FastAPI
+Lado Jotform
+
+Lado FastAPI
+
+Settings → Integrations → Webhooks → Add New
+
+Endpoint /webhook (POST)
+
+Digite URL: http://<IP‑stage>:8000/webhook (HTTP)
+
+@router.post("/webhook")
+
+Desmarque Enable SSL Verification
+
+Valide x-jf-signature (opcional)
+
+Passo a passo (Jotform)
+1. Copiar URL pública do droplet staging (com HTTPS).
+2. Add Webhook → colar URL.
+3. Selecionar ‘Include Headers’ para enviar x-jf-signature .
+4. Salvar e Test Webhook.
+Exemplo de payload
+
+{
+"submissionID": "1234567890",
+"answers": {
+"3": {
+"answer": "https://jotform.com/uploads/.../radiografia.jpg"
+}
+},
+"formID": "9876543210",
+"ip": "187.65.30.11"
+}
+FastAPI handler (mínimo)
+
+9
+
+from fastapi import APIRouter, Request, HTTPException
+import hashlib, hmac, os, httpx
+router = APIRouter()
+JOTFORM_SECRET = os.getenv("JF_SECRET")
+@router.post("/webhook")
+async def jotform_webhook(req: Request):
+body = await req.body()
+sig = req.headers.get("x-jf-signature")
+if sig and JOTFORM_SECRET:
+calc = hmac.new(JOTFORM_SECRET.encode(), body,
+hashlib.sha256).hexdigest()
+if not hmac.compare_digest(calc, sig):
+raise HTTPException(400, "invalid signature")
+data = await req.json()
+image_url = data["answers"]["3"]["answer"]
+async with httpx.AsyncClient() as cli:
+r = await cli.get(image_url)
+r.raise_for_status()
+# salvar no Spaces e prosseguir ➜ encode ➜ query
+return {"status": "accepted"}
+Segurança obrigatória
+• Use JF_SECRET gerado em Settings → Webhooks → Secret Key.
+• Bloqueie método GET; aceite só POST JSON.
+• Rate‑limit /webhook 30 req/min.
+Teste end‑to‑end
+
+curl -X POST https://<stage>/webhook \
+-H 'Content-Type: application/json' \
+-d '{"submissionID":"test","answers":{"3":{"answer":"https://picsum.photos/
+400"}}}'
+Deve retornar {"status":"accepted"} e criar registro na tabela cases .
+----------------- | -------------- | | Download imagem | < 200 ms | | Encoding CLIP
+Consulta pgvector | < 50 ms | | Total /analyze | < 1.3 s |
+Com GPU A10G (futuro), encoding cai ≈ 40 ms.
+
+17. Guia Rápido de tmux (lembrar o Manus)
+• tmux new -s raiox – cria sessão.
+• Ctrl+b d – detach.
+
+10
+
+| < 900 ms (CPU) | |
+
+• tmux ls – lista.
+• tmux attach -t raiox – reconectar.
+
+18. Questões Técnicas a Resolver na Implementação dos
+Servidores
+Lista de pontos críticos… (texto inalterado)
+Próximos passos sugeridos
+1. Criar issues GitHub correspondentes (#1‑17).
+2. Priorizar GPU (1), cache (3) e env vars (11) na Sprint 1.
+3. Validar correções em staging antes de promover para produção.
+
+19. Migração Real dos Dados e Pre‑enchimento do Banco (sem
+simulação)
+19.0. Padronização da Estrutura no Spaces
+Pasta
+
+Propósito
+
+Ação no código
+
+referencia/
+
+Dataset canônico de implantes (Nobel, Straumann
+etc.) — usado para gerar embeddings e popular a
+tabela implants .
+
+Percorrer para seed.
+
+uploads/
+
+Imagens vindas do webhook Jotform (pacientes).
+
+Nunca indexar;
+somente processar
+on‑demand e deletar
+após 90 d.
+
+clientes/
+
+Uploads manuais/legados (ex.:
+CLIENTE_001_STRAUMANN_BL.jpg ).
+
+Opcional: migrar p/
+uploads/ ou
+referencia/ se for
+ground‑truth.
+
+Regra de ouro: Somente arquivos dentro de
+
+referencia/
+
+entram na tabela
+
+implants .
+Convenção de nomes em ``
+
+<MANUFACTURER>_<LINE>_<DIÂMETRO>.jpg
+ex.: STRAUMANN_BLX_4.5mm.jpg
+• O seed script extrai manufacturer = upstream.split('_')[0].title()
+• O modelo / name recebe o restante do filename sem extensão.
+
+11
+
+19.1. Estrutura atual no Spaces
+raiox-images/
+├─ referencia/
+│
+
+├─ NOBEL_N1_3.5mm.jpg
+
+│
+
+├─ STRAUMANN_BL_3.3mm.jpg
+
+├─ uploads/
+│
+
+└─ 2024-06/...
+
+└─ clientes/
+└─ CLIENTE_001_STRAUMANN_BL.jpg
+
+19.2. Script seed_implants.py (ajustado) Estrutura atual no Spaces
+raiox-implantes/
+├─ straumann/
+│
+
+├─ bone_level_tapered_01.jpg
+
+│
+
+├─ bone_level_tapered_02.jpg
+
+├─ neodent/
+│
+
+├─ drive_cm_01.jpg
+
+│
+
+└─ drive_cm_02.jpg
+
+└─ etc.
+
+19.2. Script seed_implants.py
+import os, boto3, open_clip, torch, psycopg2
+from tqdm import tqdm
+FROM_BUCKET = "raiox-implantes"
+PREFIX
+= ""
+DB = psycopg2.connect(os.getenv("DATABASE_URL"))
+cur = DB.cursor()
+model, _, preprocess = open_clip.create_model_and_transforms("ViT-B-32",
+pretrained="openai")
+model.eval()
+s3 = boto3.client('s3', endpoint_url='https://nyc3.digitaloceanspaces.com')
+resp = s3.list_objects_v2(Bucket=FROM_BUCKET, Prefix=PREFIX)
+for obj in tqdm(resp['Contents']):
+key = obj['Key']
+if not key.lower().endswith(('.jpg','.jpeg','.png')): continue
+manufacturer, filename = key.split('/',1)
+url = f"https://{FROM_BUCKET}.nyc3.digitaloceanspaces.com/{key}"
+# download
+buf = s3.get_object(Bucket=FROM_BUCKET, Key=key)['Body'].read()
+img = preprocess(torchvision.io.decode_image(torch.frombuffer(buf,
+dtype=torch.uint8)).permute(1,2,0)).unsqueeze(0)
+with torch.no_grad():
+vec = model.encode_image(img)[0].cpu().tolist()
+
+12
+
+cur.execute("""
+INSERT INTO implants (name, manufacturer, image_url, embedding)
+VALUES (%s,%s,%s,%s)
+ON CONFLICT (image_url) DO NOTHING
+""", (filename, manufacturer.capitalize(), url, vec))
+DB.commit()
+Executar dentro de uma sessão tmux no raiox-stage .
+
+19.3. Verificação de consistência
+SELECT manufacturer, COUNT(*) AS imgs, AVG(embedding <-> embedding) AS
+self_sim
+FROM implants
+GROUP BY manufacturer;
+Deve mostrar contagem >1 por marca e self_sim ≈ 0.
+
+19.4. Seed da tabela cases para testes “reais”
+INSERT INTO cases (client_id, submission_id, client_name, image_url, status)
+SELECT 'demo', md5(image_url), 'seed', image_url, 'approved'
+FROM implants;
+Permite testar /cases endpoint com dados reais.
+
+19.5. Backup das imagens antes de produção
+• Fazer s3cmd sync s3://raiox-implantes ./backup_implantes/ local.
+• Verificar checksums ( md5sum ) para garantir integridade.
+Importante: tudo acima é produção real, sem mocks. Após rodar seed_implants.py ,
+o FastAPI responde queries top‑3 utilizando embeddings “quentes” já persistidos.
+
+13
+
+

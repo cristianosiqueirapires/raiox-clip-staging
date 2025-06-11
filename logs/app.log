@@ -1,0 +1,888 @@
+2025-06-10 15:53:07,404 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:53:13,942 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:53:14,269 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:53:14,276 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:53:25,079 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:53:28,178 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:53:28,395 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:53:28,401 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:53:38,217 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:53:41,725 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:53:41,896 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:53:41,902 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:53:51,526 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:53:55,418 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:53:55,590 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:53:55,596 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:54:05,598 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:54:09,314 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:54:09,492 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:54:09,498 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:54:19,628 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:54:23,112 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:54:23,294 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:54:23,301 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:54:33,506 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:54:36,977 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:54:37,155 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:54:37,161 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:54:47,105 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:54:50,543 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:54:50,714 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:54:50,719 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:54:59,991 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:55:03,513 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:55:03,691 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:55:03,697 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:55:14,055 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:55:17,478 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:55:17,663 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:55:17,669 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:55:27,618 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:55:31,146 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:55:31,326 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:55:31,332 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:55:41,133 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:55:44,877 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:55:45,039 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:55:45,044 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:55:54,271 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:55:57,848 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:55:58,005 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:55:58,009 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:56:07,978 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:56:11,331 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:56:11,499 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:56:11,504 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:56:21,870 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:56:25,294 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:56:25,470 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:56:25,476 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:56:35,358 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:56:39,156 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:56:39,331 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:56:39,336 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:56:48,622 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:56:52,055 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:56:52,228 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:56:52,234 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:57:01,852 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:57:05,095 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:57:05,287 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:57:05,293 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:57:15,727 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:57:19,148 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:57:19,327 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:57:19,334 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:57:29,631 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:57:33,011 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:57:33,185 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:57:33,191 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:57:42,968 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:57:46,303 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:57:46,472 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:57:46,477 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:57:55,880 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:57:59,410 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:57:59,581 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:57:59,587 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:58:10,072 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:58:13,599 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:58:13,767 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:58:13,773 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:58:24,063 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:58:27,524 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:58:27,699 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:58:27,705 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:58:37,565 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:58:40,575 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:58:40,743 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:58:40,749 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:58:50,197 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:58:53,671 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:58:53,838 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:58:53,843 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:59:03,044 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:59:06,317 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:59:06,496 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:59:06,502 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:59:16,698 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:59:20,068 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:59:20,251 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:59:20,257 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:59:30,615 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:59:34,864 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:59:35,050 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:59:35,056 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:59:44,949 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:59:48,796 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:59:49,116 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:59:49,123 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:59:50,125 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 15:59:53,610 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 15:59:54,133 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 15:59:54,139 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 15:59:59,438 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 16:00:02,798 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 16:00:02,975 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 16:00:02,980 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-06-10 16:00:13,636 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 16:00:16,941 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 16:00:17,119 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 16:01:02,163 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 16:01:05,634 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 16:01:05,819 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 16:15:17,466 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 16:15:20,693 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 16:15:20,864 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 16:18:00,441 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 16:18:04,011 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 16:18:04,200 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 16:27:13,164 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 16:27:16,389 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 16:27:16,563 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 17:37:23,225 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 17:37:27,315 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 17:37:28,480 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 17:39:18,984 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 17:39:18,993 - raiox-api - ERROR - Credenciais não encontradas para DigitalOcean Spaces
+2025-06-10 17:39:18,993 - raiox-api - ERROR - Erro no processamento do upload: Unable to locate credentials
+2025-06-10 17:42:25,683 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 17:42:29,452 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 17:42:29,835 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 17:43:42,206 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 17:43:42,213 - raiox-api - ERROR - Credenciais não encontradas para DigitalOcean Spaces
+2025-06-10 17:43:42,213 - raiox-api - ERROR - Erro no processamento do upload: Unable to locate credentials
+2025-06-10 17:45:58,715 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 17:45:58,721 - raiox-api - ERROR - Credenciais não encontradas para DigitalOcean Spaces
+2025-06-10 17:45:58,721 - raiox-api - ERROR - Erro no processamento do upload: Unable to locate credentials
+2025-06-10 17:49:52,951 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 17:49:56,563 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 17:49:56,892 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 17:50:34,992 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 17:50:35,119 - raiox-api - ERROR - Erro ao enviar arquivo para Spaces: An error occurred (NoSuchBucket) when calling the PutObject operation: None
+2025-06-10 17:50:35,119 - raiox-api - ERROR - Erro no processamento do upload: An error occurred (NoSuchBucket) when calling the PutObject operation: None
+2025-06-10 17:50:59,348 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 17:50:59,456 - raiox-api - ERROR - Erro ao enviar arquivo para Spaces: An error occurred (NoSuchBucket) when calling the PutObject operation: None
+2025-06-10 17:50:59,457 - raiox-api - ERROR - Erro no processamento do upload: An error occurred (NoSuchBucket) when calling the PutObject operation: None
+2025-06-10 17:57:48,443 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 17:57:52,632 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 17:57:52,973 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 18:00:16,156 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:00:16,307 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_image.jpg
+2025-06-10 18:00:16,401 - raiox-api - ERROR - Erro ao processar imagem com CLIP: cannot identify image file <_io.BytesIO object at 0x7fa1402ddb70>
+2025-06-10 18:00:16,401 - raiox-api - ERROR - Erro no processamento do upload: cannot identify image file <_io.BytesIO object at 0x7fa1402ddb70>
+2025-06-10 18:00:47,337 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:00:47,392 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/real_test.jpg
+2025-06-10 18:00:47,394 - raiox-api - ERROR - Erro ao processar imagem com CLIP: cannot identify image file <_io.BytesIO object at 0x7fa143542390>
+2025-06-10 18:00:47,394 - raiox-api - ERROR - Erro no processamento do upload: cannot identify image file <_io.BytesIO object at 0x7fa143542390>
+2025-06-10 18:03:35,827 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:03:35,966 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_real_image.jpg
+2025-06-10 18:03:36,366 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:03:36,366 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:03:59,008 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:03:59,038 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_real_image.jpg
+2025-06-10 18:03:59,039 - raiox-api - ERROR - Erro ao processar imagem com CLIP: cannot identify image file <_io.BytesIO object at 0x7fa140326570>
+2025-06-10 18:03:59,039 - raiox-api - ERROR - Erro no processamento do upload: cannot identify image file <_io.BytesIO object at 0x7fa140326570>
+2025-06-10 18:07:18,590 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 18:07:22,433 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 18:07:22,791 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 18:08:09,313 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:08:09,453 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_real_image.jpg
+2025-06-10 18:08:09,519 - raiox-api - ERROR - Erro ao processar imagem com CLIP: cannot identify image file <_io.BytesIO object at 0x7fc176433dd0>
+2025-06-10 18:08:09,519 - raiox-api - ERROR - Erro no processamento do upload: cannot identify image file <_io.BytesIO object at 0x7fc176433dd0>
+2025-06-10 18:09:36,713 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 18:09:40,269 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 18:09:40,422 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 18:11:43,784 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:11:43,907 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 18:11:44,105 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:11:44,105 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:13:46,651 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 18:13:50,334 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 18:13:50,657 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 18:14:52,818 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:14:52,950 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 18:14:53,142 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:14:53,143 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:15:47,781 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 18:15:51,091 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 18:15:51,242 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 18:18:06,243 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:18:06,386 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 18:18:06,573 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:18:06,573 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:21:36,933 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 18:21:40,152 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 18:21:40,290 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 18:21:59,842 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:22:00,000 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 18:22:00,298 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:22:00,299 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.OperationalError) could not translate host name "1pQ3y@localhost" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:24:38,679 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 18:24:41,949 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 18:24:42,105 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 18:24:50,668 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:24:50,789 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 18:24:50,980 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.OperationalError) connection to server at "159.65.183.73", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:24:50,980 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.OperationalError) connection to server at "159.65.183.73", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-10 18:56:52,909 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 18:56:53,053 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 18:56:53,476 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.UndefinedTable) relation "implants" does not exist
+LINE 3:                 FROM implants
+                             ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 18:56:53,478 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.UndefinedTable) relation "implants" does not exist
+LINE 3:                 FROM implants
+                             ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:01:13,272 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:01:13,411 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:01:13,743 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:01:13,746 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:04:18,856 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:04:18,975 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:04:19,162 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:04:19,164 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:05:06,339 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:05:06,389 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:05:06,592 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:05:06,594 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:08:25,654 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 19:08:29,835 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 19:08:30,195 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 19:09:55,762 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:09:55,906 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:09:56,151 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:09:56,153 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:12:30,575 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:12:30,764 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:12:31,092 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:12:31,095 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.UndefinedFunction) operator does not exist: vector <-> numeric[]
+LINE 4:                 ORDER BY embedding <-> ARRAY[ -0.16084365546...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s
+                LIMIT %(limit)s
+            ]
+[parameters: {'query_vector': [-0.1608436554670334, -0.23146101832389832, -0.43175941705703735, -0.04785055294632912, 0.07093437016010284, -0.42538970708847046, 0.12001843005418777 ... (10530 characters truncated) ... , -0.10316935926675797, -0.2340700477361679, 0.05978824570775032, -0.11267462372779846, 0.3558083176612854, -0.18254999816417694, 0.12885631620883942], 'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:18:15,288 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 19:18:19,090 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 19:18:19,461 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 19:21:43,173 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:21:43,336 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:21:43,603 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near ":"
+LINE 4:                 ORDER BY embedding <-> :query_vector::vector
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> :query_vector::vector
+                LIMIT %(limit)s
+            ]
+[parameters: {'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:21:43,603 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.SyntaxError) syntax error at or near ":"
+LINE 4:                 ORDER BY embedding <-> :query_vector::vector
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> :query_vector::vector
+                LIMIT %(limit)s
+            ]
+[parameters: {'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:22:14,734 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:22:14,775 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:22:14,974 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near ":"
+LINE 4:                 ORDER BY embedding <-> :query_vector::vector
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> :query_vector::vector
+                LIMIT %(limit)s
+            ]
+[parameters: {'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:22:14,975 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.SyntaxError) syntax error at or near ":"
+LINE 4:                 ORDER BY embedding <-> :query_vector::vector
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> :query_vector::vector
+                LIMIT %(limit)s
+            ]
+[parameters: {'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:27:42,258 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 19:27:46,230 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 19:27:46,599 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 19:27:48,976 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:27:49,133 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:27:49,386 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:27:49,387 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:30:51,645 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 19:30:55,108 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 19:30:55,274 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 19:30:59,286 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:30:59,417 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:30:59,646 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:30:59,646 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:32:40,472 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-10 19:32:43,966 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-10 19:32:44,135 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-10 19:33:29,422 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-10 19:33:29,570 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-10 19:33:29,819 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-10 19:33:29,819 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 04:50:58,530 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 04:50:58,647 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-11 04:50:58,918 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 04:50:58,919 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 04:51:37,172 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 04:51:40,324 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 04:51:40,616 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 04:51:56,406 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 04:51:56,533 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-11 04:51:56,741 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near ":"
+LINE 4:                 ORDER BY embedding <-> :query_vector::vector
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> :query_vector::vector
+                LIMIT %(limit)s
+            ]
+[parameters: {'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 04:51:56,741 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.SyntaxError) syntax error at or near ":"
+LINE 4:                 ORDER BY embedding <-> :query_vector::vector
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> :query_vector::vector
+                LIMIT %(limit)s
+            ]
+[parameters: {'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 04:52:35,640 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 04:52:38,807 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 04:52:38,963 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 04:52:49,911 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 04:52:50,049 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-11 04:52:50,264 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 04:52:50,265 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 04:53:46,029 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 04:53:49,562 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 04:53:49,701 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 04:54:01,302 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 04:54:01,439 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-11 04:54:01,670 - raiox-api - ERROR - Erro ao buscar implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 04:54:01,670 - raiox-api - ERROR - Erro no processamento do upload: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 04:56:15,520 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 04:56:19,045 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 04:56:19,204 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 04:56:55,903 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 04:56:59,323 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 04:56:59,456 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 04:57:09,552 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 04:57:13,400 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 04:57:13,553 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 04:57:22,204 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 04:57:25,213 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 04:57:25,346 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 04:57:32,727 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 04:57:35,149 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 04:57:35,288 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 04:57:59,769 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 04:58:03,520 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 04:58:03,678 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 04:58:08,185 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 04:58:08,303 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/test_clip_image.png
+2025-06-11 04:58:08,452 - raiox-api - INFO - Busca de implantes similares executada com sucesso
+2025-06-11 04:58:08,453 - raiox-api - INFO - Processamento concluído para cliente test123
+2025-06-11 06:51:48,183 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 06:51:48,310 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/M7ZMEtGI2liC.jpg
+2025-06-11 06:51:48,662 - raiox-api - INFO - Busca de implantes similares executada com sucesso
+2025-06-11 06:51:48,663 - raiox-api - INFO - Processamento concluído para cliente test123
+2025-06-11 06:52:01,528 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 06:52:01,561 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/M7ZMEtGI2liC.jpg
+2025-06-11 06:52:01,781 - raiox-api - INFO - Busca de implantes similares executada com sucesso
+2025-06-11 06:52:01,782 - raiox-api - INFO - Processamento concluído para cliente test123
+2025-06-11 06:58:07,304 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 06:58:10,621 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 06:58:11,615 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 06:58:28,735 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 06:58:28,888 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/M7ZMEtGI2liC.jpg
+2025-06-11 06:58:29,275 - raiox-api - ERROR - Erro na busca de implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 06:58:29,275 - raiox-api - INFO - Processamento concluído para cliente test123
+2025-06-11 07:00:56,560 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 07:01:00,152 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 07:01:00,456 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 07:01:04,527 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 07:01:04,683 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/M7ZMEtGI2liC.jpg
+2025-06-11 07:01:05,007 - raiox-api - ERROR - Erro na busca de implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near "%"
+LINE 4:                 ORDER BY embedding <-> %(query_vector)s::vec...
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %%(query_vector)s::vector
+                LIMIT %%(limit)s
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 07:01:05,008 - raiox-api - INFO - Processamento concluído para cliente test123
+2025-06-11 07:02:12,572 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 07:02:16,201 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 07:02:16,374 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 07:02:22,164 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 07:02:22,320 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/M7ZMEtGI2liC.jpg
+2025-06-11 07:02:22,616 - raiox-api - ERROR - Erro na busca de implantes similares: (psycopg2.errors.SyntaxError) syntax error at or near ":"
+LINE 4:                 ORDER BY embedding <-> :query_vector::vector
+                                               ^
+
+[SQL: 
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> :query_vector::vector
+                LIMIT %(limit)s
+            ]
+[parameters: {'limit': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-06-11 07:02:22,616 - raiox-api - INFO - Processamento concluído para cliente test123
+2025-06-11 07:03:41,505 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 07:03:44,574 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 07:03:44,732 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 07:03:51,846 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 07:03:51,983 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/M7ZMEtGI2liC.jpg
+2025-06-11 07:03:52,233 - raiox-api - ERROR - Erro na busca de implantes similares: permission denied for table implants
+
+2025-06-11 07:03:52,234 - raiox-api - INFO - Processamento concluído para cliente test123
+2025-06-11 07:04:25,755 - raiox-api - INFO - Recebido upload de imagem para cliente test123
+2025-06-11 07:04:25,799 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/M7ZMEtGI2liC.jpg
+2025-06-11 07:04:26,013 - raiox-api - INFO - Encontrados 3 implantes similares
+2025-06-11 07:04:26,013 - raiox-api - INFO - Processamento concluído para cliente test123

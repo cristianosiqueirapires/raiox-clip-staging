@@ -323,48 +323,40 @@ def upload_to_spaces(file_obj, object_name):
 def find_similar_implants(query_vector, db, limit=3):
     """
     Encontra implantes similares com base em um vetor de consulta.
+    
+    Args:
+        query_vector: Vetor de embedding da imagem de consulta
+        db: Sessão do banco de dados
+        limit: Número máximo de implantes a retornar
+        
+    Returns:
+        Lista de implantes similares
     """
     try:
-        # Usar psycopg2 direto para evitar problemas com SQLAlchemy
-        import psycopg2
-        
-        conn = psycopg2.connect(
-            host="159.65.183.73",
-            database="raiox",
-            user="raiox_user",
-            password="Xc7!rA2v9Z@1pQ3y"
-        )
-        
-        cur = conn.cursor()
-        
-        # Converter array para string PostgreSQL
-        vector_str = "[" + ",".join(map(str, query_vector.tolist())) + "]"
-        
-        cur.execute("""
-            SELECT id, name, manufacturer, image_url
-            FROM implants
-            ORDER BY embedding <-> %s::vector
-            LIMIT %s
-        """, (vector_str, limit))
-        
-        rows = cur.fetchall()
-        
-        implants = []
-        for row in rows:
-            implants.append({
-                "id": row[0],
-                "name": row[1],
-                "manufacturer": row[2],
-                "type": None,
-                "image_url": row[3]
-            })
-        
-        cur.close()
-        conn.close()
-        
-        logger.info(f"Encontrados {len(implants)} implantes similares")
-        return implants
-        
+        with engine.connect() as conn:
+            result = conn.execute(text("""
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> %(query_vector)s::vector
+                LIMIT %(limit)s
+            """), {"query_vector": query_vector.tolist(), "limit": limit})
+            
+            implants = []
+            for row in result:
+                implants.append({
+                    "id": row[0],
+                    "name": row[1],
+                    "manufacturer": row[2],
+                    "type": None,
+                    "image_url": row[3]
+                })
+            
+            logger.info(f"Encontrados {len(implants)} implantes similares")
+            return implants
+            
+    except Exception as e:
+        logger.error(f"Erro na busca de implantes similares: {str(e)}")
+        return []
     except Exception as e:
         logger.error(f"Erro na busca de implantes similares: {str(e)}")
         return []
