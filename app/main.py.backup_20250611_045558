@@ -368,27 +368,9 @@ def find_similar_implants(query_vector, db, limit=3):
     except Exception as e:
         logger.error(f"Erro na busca de implantes similares: {str(e)}")
         return []
-@app.post("/jotform", response_model=List[ImplantSchema])
-async def jotform_webhook(
-    file: UploadFile = File(...),
-    nome: str = Form(None),
-    email: str = Form(None),
-    paciente: str = Form(None),
-    dente: str = Form(None),
-    db=Depends(get_db)
-):
-    """
-    Endpoint para receber dados do formulário Jotform
-    Aceita multipart/form-data com arquivo de imagem e metadados
-    """
-    try:
-        logger.info(f"Recebendo dados do Jotform - arquivo: {file.filename}, email: {email}")
-        
-        # Validar se é uma imagem
-        if not file.content_type.startswith('image/'):
-            raise HTTPException(status_code=400, detail="Arquivo deve ser uma imagem")
-        
-        # Ler dados da imagem
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
         image_data = await file.read()
         
         # Criar client_id baseado no email ou usar valor padrão
@@ -407,22 +389,11 @@ async def jotform_webhook(
         object_name = f"clientes/{client_id}/{file.filename}"
         spaces_url = upload_to_spaces(io.BytesIO(image_data), object_name)
         
-        if not spaces_url:
-            raise HTTPException(status_code=500, detail="Erro no upload da imagem")
-        
-        logger.info(f"Imagem enviada para Spaces: {spaces_url}")
-        
         # Processar imagem com CLIP
-        image_pil = Image.open(io.BytesIO(image_data))
-        query_vector = process_image(image_data)
+        vector = process_image(image_data)
         
-        if query_vector is None:
-            raise HTTPException(status_code=500, detail="Erro no processamento da imagem com CLIP")
-        
-        logger.info("Imagem processada com CLIP, buscando implantes similares...")
-        
-        # Buscar implantes similares no PostgreSQL
-        similar_implants = find_similar_implants(query_vector, db)
+        # Encontrar implantes similares
+        similar_implants = find_similar_implants(vector, db)
         
         # Converter para ImplantSchema
         result = []
@@ -444,9 +415,95 @@ async def jotform_webhook(
     except Exception as e:
         logger.error(f"Erro no processamento do Jotform: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Erro no processamento: {str(e)}")
-
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
-
+@app.post("/jotform", response_model=List[ImplantSchema])
+async def jotform_webhook(
+    request: Request,
+    db=Depends(get_db)
+):
+    """
+    Endpoint para receber submissões do Jotform com debug.
+    """
+    # Log completo do corpo da requisição
+    body = await request.body()
+    logger.info(f"Recebido formulário Jotform - Body: {body}")
+    
+    # Log dos headers
+    logger.info(f"Headers: {request.headers}")
+    
+    # Log do content type
+    logger.info(f"Content-Type: {request.headers.get('content-type')}")
+    
+    # Tentar processar o formulário
+    try:
+        form = await request.form()
+        logger.info(f"Form data: {form}")
+        
+        # Verificar campos disponíveis
+        for key, value in form.items():
+            logger.info(f"Campo: {key}, Valor: {value}")
+        
+        # Verificar se há arquivo
+        file = None
+        for key, value in form.items():
+            if isinstance(value, UploadFile):
+                file = value
+                logger.info(f"Arquivo encontrado: {key} - {file.filename}")
+                break
+        
+        if not file:
+            logger.error("Nenhum arquivo encontrado no formulário")
+            raise HTTPException(status_code=400, detail="Nenhum arquivo encontrado")
+        
+        # Extrair outros campos
+        email = form.get('q3_email')
+        nome = form.get('q1_nome')
+        paciente = form.get('q4_nomeDo')
+        dente = form.get('q15_qualO')
+        
+        logger.info(f"Campos extraídos - Email: {email}, Nome: {nome}, Paciente: {paciente}, Dente: {dente}")
+        
+        # Ler conteúdo do arquivo
+        image_data = await file.read()
+        
+        # Criar client_id baseado no email ou usar valor padrão
+        client_id = email.replace('@', '_').replace('.', '_') if email else "jotform_user"
+        
+        # Criar metadata com informações do formulário
+        metadata = {
+            "nome": nome,
+            "email": email,
+            "paciente": paciente,
+            "dente": dente,
+            "origem": "jotform"
+        }
+        
+        # Fazer upload para DigitalOcean Spaces na pasta clientes
+        object_name = f"clientes/{client_id}/{file.filename}"
+        spaces_url = upload_to_spaces(io.BytesIO(image_data), object_name)
+        
+        # Processar imagem com CLIP
+        vector = process_image(image_data)
+        
+        # Encontrar implantes similares
+        similar_implants = find_similar_implants(vector, db)
+        
+        # Converter para ImplantSchema
+        result = []
+        for implant in similar_implants:
+            if isinstance(implant, dict):
+                result.append(ImplantSchema(**implant))
+            else:
+                result.append(ImplantSchema(
+                    id=implant.id,
+                    name=implant.name,
+                    manufacturer=implant.manufacturer,
+                    type=getattr(implant, 'type', None),
+                    image_url=implant.image_url
+                ))
+        
+        logger.info(f"Processamento Jotform concluído para {client_id} - Encontrados {len(result)} implantes similares")
+        return result
+    
+    except Exception as e:
+        logger.error(f"Erro no processamento do Jotform: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Erro no processamento: {str(e)}")

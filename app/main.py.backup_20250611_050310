@@ -414,7 +414,7 @@ async def jotform_webhook(
         
         # Processar imagem com CLIP
         image_pil = Image.open(io.BytesIO(image_data))
-        query_vector = process_image(image_data)
+        query_vector = process_image_with_clip(image_pil)
         
         if query_vector is None:
             raise HTTPException(status_code=500, detail="Erro no processamento da imagem com CLIP")

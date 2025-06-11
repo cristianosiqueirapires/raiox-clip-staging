@@ -368,6 +368,9 @@ def find_similar_implants(query_vector, db, limit=3):
     except Exception as e:
         logger.error(f"Erro na busca de implantes similares: {str(e)}")
         return []
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 @app.post("/jotform", response_model=List[ImplantSchema])
 async def jotform_webhook(
     file: UploadFile = File(...),
@@ -378,17 +381,23 @@ async def jotform_webhook(
     db=Depends(get_db)
 ):
     """
-    Endpoint para receber dados do formulário Jotform
-    Aceita multipart/form-data com arquivo de imagem e metadados
+    Endpoint para receber submissões do Jotform.
+    
+    Args:
+        file: Arquivo de imagem enviado pelo Jotform
+        nome: Nome do dentista (opcional)
+        email: Email do dentista (opcional)
+        paciente: Nome do paciente (opcional)
+        dente: Número do dente (opcional)
+        db: Sessão do banco de dados (injetada pelo FastAPI)
+        
+    Returns:
+        Lista de implantes similares (convertidos para ImplantSchema)
     """
+    logger.info(f"Recebido formulário Jotform - Email: {email}, Paciente: {paciente}, Dente: {dente}")
+    
     try:
-        logger.info(f"Recebendo dados do Jotform - arquivo: {file.filename}, email: {email}")
-        
-        # Validar se é uma imagem
-        if not file.content_type.startswith('image/'):
-            raise HTTPException(status_code=400, detail="Arquivo deve ser uma imagem")
-        
-        # Ler dados da imagem
+        # Ler conteúdo do arquivo
         image_data = await file.read()
         
         # Criar client_id baseado no email ou usar valor padrão
@@ -407,22 +416,11 @@ async def jotform_webhook(
         object_name = f"clientes/{client_id}/{file.filename}"
         spaces_url = upload_to_spaces(io.BytesIO(image_data), object_name)
         
-        if not spaces_url:
-            raise HTTPException(status_code=500, detail="Erro no upload da imagem")
-        
-        logger.info(f"Imagem enviada para Spaces: {spaces_url}")
-        
         # Processar imagem com CLIP
-        image_pil = Image.open(io.BytesIO(image_data))
-        query_vector = process_image(image_data)
+        vector = process_image(image_data)
         
-        if query_vector is None:
-            raise HTTPException(status_code=500, detail="Erro no processamento da imagem com CLIP")
-        
-        logger.info("Imagem processada com CLIP, buscando implantes similares...")
-        
-        # Buscar implantes similares no PostgreSQL
-        similar_implants = find_similar_implants(query_vector, db)
+        # Encontrar implantes similares
+        similar_implants = find_similar_implants(vector, db)
         
         # Converter para ImplantSchema
         result = []
@@ -444,9 +442,3 @@ async def jotform_webhook(
     except Exception as e:
         logger.error(f"Erro no processamento do Jotform: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Erro no processamento: {str(e)}")
-
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
-
