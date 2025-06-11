@@ -1,0 +1,360 @@
+"""
+Arquivo principal da aplicação FastAPI para o projeto Raiox AI.
+Este arquivo contém todos os endpoints e a lógica de negócio da API.
+
+Autor: Manus AI
+Data: Junho 2025
+"""
+
+from app.schemas import ImplantSchema
+from app.schemas import WebhookRequest
+from app.db.session import get_db
+from fastapi import FastAPI, File, UploadFile, HTTPException, Depends, Header, Request
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import create_engine, text
+from sqlalchemy.orm import sessionmaker
+from pydantic import BaseModel
+from typing import List, Optional
+import os
+import json
+import logging
+import boto3
+from botocore.exceptions import NoCredentialsError
+import torch
+import open_clip
+from PIL import Image
+import io
+import numpy as np
+from dotenv import load_dotenv
+from pgvector.sqlalchemy import Vector
+
+from app.models import Implant
+
+# Carregar variáveis de ambiente
+load_dotenv()
+
+# Configurar logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("/opt/raiox-app/logs/app.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger("raiox-api")
+
+# Configurar conexão com o banco de dados
+DB_USER = os.getenv("DB_USER", "raiox_user")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "Xc7!rA2v9Z@1pQ3y")
+DB_NAME = os.getenv("DB_NAME", "raiox_db")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+
+DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# Configurar DigitalOcean Spaces
+DO_SPACES_KEY = os.getenv("DO_SPACES_KEY")
+DO_SPACES_SECRET = os.getenv("DO_SPACES_SECRET")
+DO_SPACES_BUCKET = os.getenv("DO_SPACES_BUCKET", "raiox-imagens")
+DO_SPACES_REGION = os.getenv("DO_SPACES_REGION", "nyc3")
+DO_SPACES_ENDPOINT = os.getenv("DO_SPACES_ENDPOINT", "https://nyc3.digitaloceanspaces.com" )
+
+s3_client = boto3.client(
+    's3',
+    region_name=DO_SPACES_REGION,
+    endpoint_url=DO_SPACES_ENDPOINT,
+    aws_access_key_id=DO_SPACES_KEY,
+    aws_secret_access_key=DO_SPACES_SECRET
+)
+
+# Carregar modelo CLIP
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model, preprocess, _ = open_clip.create_model_and_transforms("ViT-B-32", pretrained='openai', device=device)
+logger.info(f"Modelo CLIP carregado no dispositivo: {device}")
+
+# Criar aplicação FastAPI
+app = FastAPI(
+    title=os.getenv("APP_NAME", "Raiox AI"),
+    description=os.getenv("APP_DESCRIPTION", "API para processamento de imagens de raio-X com CLIP"),
+    version=os.getenv("APP_VERSION", "2.0.0")
+)
+
+# Configurar CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Rotas
+@app.get("/healthcheck")
+def healthcheck():
+    """Endpoint para verificar se o serviço está funcionando."""
+    return {"status": "ok", "version": os.getenv("APP_VERSION", "2.0.0")}
+
+@app.post("/webhook", response_model=List[ImplantSchema])
+async def webhook(request: WebhookRequest, db=Depends(get_db)):
+    """
+    Endpoint para processar webhooks com URLs de imagens.
+    
+    Args:
+        request: Objeto WebhookRequest contendo a URL da imagem e metadados
+        db: Sessão do banco de dados (injetada pelo FastAPI)
+        
+    Returns:
+        Lista de implantes similares (convertidos para ImplantSchema)
+    """
+    logger.info(f"Recebido webhook para cliente {request.client_id}")
+    
+    try:
+        # Baixar imagem da URL
+        import requests
+        response = requests.get(request.image_url)
+        if response.status_code != 200:
+            logger.error(f"Erro ao baixar imagem da URL: {response.status_code}")
+            raise HTTPException(status_code=400, detail="Não foi possível baixar a imagem da URL fornecida")
+        
+        image_data = response.content
+        
+        # Fazer upload para DigitalOcean Spaces
+        object_name = f"uploads/{request.client_id}/{os.path.basename(request.image_url)}"
+        spaces_url = upload_to_spaces(io.BytesIO(image_data), object_name)
+        
+        # Processar imagem com CLIP
+        vector = process_image(image_data)
+        
+        # Encontrar implantes similares
+        similar_implants = find_similar_implants(vector, db)
+        
+        # Converter para ImplantSchema
+        result = []
+        for implant in similar_implants:
+            if isinstance(implant, dict):
+                result.append(ImplantSchema(**implant))
+            else:
+                result.append(ImplantSchema(
+                    id=implant.id,
+                    name=implant.name,
+                    manufacturer=implant.manufacturer,
+                    type=getattr(implant, 'type', None),
+                    image_url=implant.image_url
+                ))
+        
+        logger.info(f"Processamento concluído para cliente {request.client_id}")
+        return result
+    
+    except Exception as e:
+        logger.error(f"Erro no processamento do webhook: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Erro no processamento: {str(e)}")
+
+@app.post("/upload", response_model=List[ImplantSchema])
+async def upload_image(file: UploadFile = File(...), client_id: str = Header(alias="X-Client-ID"), db=Depends(get_db)):
+    """
+    Endpoint para upload de imagens.
+    
+    Args:
+        file: Arquivo de imagem enviado pelo cliente
+        client_id: ID do cliente (obrigatório no header)
+        db: Sessão do banco de dados (injetada pelo FastAPI)
+        
+    Returns:
+        Lista de implantes similares (convertidos para ImplantSchema)
+    """
+    if not client_id:
+        raise HTTPException(status_code=400, detail="Header client_id é obrigatório")
+    
+    logger.info(f"Recebido upload de imagem para cliente {client_id}")
+    
+    try:
+        # Ler conteúdo do arquivo
+        image_data = await file.read()
+        
+        # Fazer upload para DigitalOcean Spaces
+        object_name = f"uploads/{client_id}/{file.filename}"
+        spaces_url = upload_to_spaces(io.BytesIO(image_data), object_name)
+        
+        # Processar imagem com CLIP
+        vector = process_image(image_data)
+        
+        # Encontrar implantes similares
+        similar_implants = find_similar_implants(vector, db)
+        
+        # Converter para ImplantSchema
+        result = []
+        for implant in similar_implants:
+            if isinstance(implant, dict):
+                result.append(ImplantSchema(**implant))
+            else:
+                result.append(ImplantSchema(
+                    id=implant.id,
+                    name=implant.name,
+                    manufacturer=implant.manufacturer,
+                    type=getattr(implant, 'type', None),
+                    image_url=implant.image_url
+                ))
+        
+        logger.info(f"Processamento concluído para cliente {client_id}")
+        return result
+    
+    except Exception as e:
+        logger.error(f"Erro no processamento do upload: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Erro no processamento: {str(e)}")
+
+@app.get("/implants", response_model=List[ImplantSchema])
+def get_implants(skip: int = 0, limit: int = 100, db=Depends(get_db)):
+    """
+    Endpoint para listar implantes.
+    
+    Args:
+        skip: Número de registros a pular (para paginação)
+        limit: Número máximo de registros a retornar
+        db: Sessão do banco de dados (injetada pelo FastAPI)
+        
+    Returns:
+        Lista de implantes (convertidos para ImplantSchema)
+    """
+    with engine.connect() as conn:
+        result = conn.execute(text("""
+            SELECT id, name, manufacturer, image_url
+            FROM implants
+            ORDER BY id
+            LIMIT :limit OFFSET :skip
+        """), {"skip": skip, "limit": limit})
+        
+        implants = []
+        for row in result:
+            implants.append(ImplantSchema(
+                id=row[0],
+                name=row[1],
+                manufacturer=row[2],
+                image_url=row[3]
+            ))
+        
+        return implants
+
+@app.get("/implants/{implant_id}", response_model=ImplantSchema)
+def get_implant(implant_id: int, db=Depends(get_db)):
+    """
+    Endpoint para obter um implante específico pelo ID.
+    
+    Args:
+        implant_id: ID do implante a ser obtido
+        db: Sessão do banco de dados (injetada pelo FastAPI)
+        
+    Returns:
+        Implante (convertido para ImplantSchema)
+    """
+    with engine.connect() as conn:
+        result = conn.execute(text("""
+            SELECT id, name, manufacturer, image_url
+            FROM implants
+            WHERE id = :id
+        """), {"id": implant_id})
+        
+        row = result.fetchone()
+        if not row:
+            raise HTTPException(status_code=404, detail="Implante não encontrado")
+        
+        return ImplantSchema(
+            id=row[0],
+            name=row[1],
+            manufacturer=row[2],
+            image_url=row[3]
+        )
+
+# Funções auxiliares
+def process_image(image_data):
+    """
+    Processa uma imagem com o modelo CLIP.
+    
+    Args:
+        image_data: Dados binários da imagem
+        
+    Returns:
+        Vetor de embedding da imagem
+    """
+    try:
+        image = Image.open(io.BytesIO(image_data))
+        image_input = preprocess(image).unsqueeze(0).to(device)
+        
+        with torch.no_grad():
+            image_features = model.encode_image(image_input)
+            image_embedding = image_features.cpu().numpy().flatten()
+        
+        return image_embedding
+    except Exception as e:
+        logger.error(f"Erro ao processar imagem com CLIP: {str(e)}")
+        raise
+
+def upload_to_spaces(file_obj, object_name):
+    """
+    Faz upload de um arquivo para o DigitalOcean Spaces.
+    
+    Args:
+        file_obj: Objeto de arquivo a ser enviado
+        object_name: Nome do objeto no Spaces
+        
+    Returns:
+        URL do arquivo no Spaces
+    """
+    try:
+        s3_client.upload_fileobj(
+            file_obj,
+            DO_SPACES_BUCKET,
+            object_name,
+            ExtraArgs={'ACL': 'public-read'}
+        )
+        
+        url = f"{DO_SPACES_ENDPOINT}/{DO_SPACES_BUCKET}/{object_name}"
+        logger.info(f"Arquivo enviado para Spaces: {url}")
+        return url
+    except NoCredentialsError:
+        logger.error("Credenciais não encontradas para DigitalOcean Spaces")
+        raise
+    except Exception as e:
+        logger.error(f"Erro ao enviar arquivo para Spaces: {str(e)}")
+        raise
+
+def find_similar_implants(query_vector, db, limit=3):
+    """
+    Encontra implantes similares com base em um vetor de consulta.
+    
+    Args:
+        query_vector: Vetor de embedding da imagem de consulta
+        db: Sessão do banco de dados
+        limit: Número máximo de implantes a retornar
+        
+    Returns:
+        Lista de implantes similares
+    """
+    try:
+        with engine.connect() as conn:
+            result = conn.execute(text("""
+                SELECT id, name, manufacturer, image_url
+                FROM implants
+                ORDER BY embedding <-> :query_vector
+                LIMIT :limit
+            """), {"query_vector": query_vector.tolist(), "limit": limit})
+            
+            implants = []
+            for row in result:
+                implants.append({
+                    "id": row[0],
+                    "name": row[1],
+                    "manufacturer": row[2],
+                    "image_url": row[3]
+                })
+            
+            return implants
+    except Exception as e:
+        logger.error(f"Erro ao buscar implantes similares: {str(e)}")
+        raise
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
