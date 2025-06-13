@@ -886,3 +886,501 @@ LINE 4:                 ORDER BY embedding <-> :query_vector::vector
 2025-06-11 07:04:25,799 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/uploads/test123/M7ZMEtGI2liC.jpg
 2025-06-11 07:04:26,013 - raiox-api - INFO - Encontrados 3 implantes similares
 2025-06-11 07:04:26,013 - raiox-api - INFO - Processamento concluído para cliente test123
+2025-06-11 08:36:58,711 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 08:37:02,243 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 08:37:02,437 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 08:58:15,209 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 08:58:18,561 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 08:58:18,726 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 09:02:22,233 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: teste1_nobel_similar.jpg, email: teste@effdental.com.br
+2025-06-11 09:02:22,373 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/teste_effdental_com_br/teste1_nobel_similar.jpg
+2025-06-11 09:02:22,373 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/teste_effdental_com_br/teste1_nobel_similar.jpg
+2025-06-11 09:02:22,395 - raiox-api - ERROR - Erro no processamento do Jotform: name 'process_image_with_clip' is not defined
+2025-06-11 09:03:42,574 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 09:03:45,629 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 09:03:45,792 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 09:04:22,948 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: teste1_nobel_similar.jpg, email: teste@effdental.com.br
+2025-06-11 09:04:23,088 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/teste_effdental_com_br/teste1_nobel_similar.jpg
+2025-06-11 09:04:23,088 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/teste_effdental_com_br/teste1_nobel_similar.jpg
+2025-06-11 09:04:23,345 - raiox-api - INFO - Imagem processada com CLIP, buscando implantes similares...
+2025-06-11 09:04:23,381 - raiox-api - INFO - Encontrados 3 implantes similares
+2025-06-11 09:04:23,381 - raiox-api - INFO - Processamento Jotform concluído para teste_effdental_com_br - Encontrados 3 implantes similares
+2025-06-11 09:49:06,937 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 09:49:09,812 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 09:49:10,567 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 09:49:20,116 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 09:49:23,210 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 09:49:23,503 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 09:49:32,357 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 09:49:35,369 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 09:49:35,532 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 09:49:44,284 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 09:49:46,964 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 09:49:47,122 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 09:49:55,126 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 09:49:58,072 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 09:49:58,233 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 09:51:26,202 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 09:51:29,487 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 09:51:29,661 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 09:57:34,933 - raiox-api - INFO - === TRACKING INFO ===
+2025-06-11 09:57:34,933 - raiox-api - INFO - Análise ID: 251612149823657_d41d8c_
+2025-06-11 09:57:34,933 - raiox-api - INFO - Submission ID: 251612149823657
+2025-06-11 09:57:34,933 - raiox-api - INFO - Dentista: 
+2025-06-11 09:57:34,933 - raiox-api - INFO - Email: 
+2025-06-11 09:57:34,933 - raiox-api - INFO - Paciente: 
+2025-06-11 09:57:34,933 - raiox-api - INFO - Dente: 
+2025-06-11 09:57:34,933 - raiox-api - INFO - Timestamp: 20250611_095734
+2025-06-11 09:57:34,933 - raiox-api - INFO - =====================
+2025-06-11 09:58:27,056 - raiox-api - INFO - === TRACKING INFO ===
+2025-06-11 09:58:27,057 - raiox-api - INFO - Análise ID: 251612149823657_1a0e49_21
+2025-06-11 09:58:27,057 - raiox-api - INFO - Submission ID: 251612149823657
+2025-06-11 09:58:27,057 - raiox-api - INFO - Dentista: 
+2025-06-11 09:58:27,057 - raiox-api - INFO - Email: joao.silva@teste.com
+2025-06-11 09:58:27,057 - raiox-api - INFO - Paciente: Maria Santos
+2025-06-11 09:58:27,057 - raiox-api - INFO - Dente: 21
+2025-06-11 09:58:27,057 - raiox-api - INFO - Timestamp: 20250611_095827
+2025-06-11 09:58:27,057 - raiox-api - INFO - =====================
+2025-06-11 09:58:27,057 - raiox-api - ERROR - Erro no processamento dos resultados: name 'hashlib' is not defined
+2025-06-11 09:59:29,225 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 09:59:32,564 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 09:59:32,753 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 10:00:03,605 - raiox-api - INFO - === TRACKING INFO ===
+2025-06-11 10:00:03,606 - raiox-api - INFO - Análise ID: 251612149823657_1a0e49_21
+2025-06-11 10:00:03,606 - raiox-api - INFO - Submission ID: 251612149823657
+2025-06-11 10:00:03,606 - raiox-api - INFO - Dentista: 
+2025-06-11 10:00:03,607 - raiox-api - INFO - Email: joao.silva@teste.com
+2025-06-11 10:00:03,607 - raiox-api - INFO - Paciente: Maria Santos
+2025-06-11 10:00:03,607 - raiox-api - INFO - Dente: 21
+2025-06-11 10:00:03,607 - raiox-api - INFO - Timestamp: 20250611_100003
+2025-06-11 10:00:03,607 - raiox-api - INFO - =====================
+2025-06-11 10:00:03,608 - raiox-api - ERROR - Erro ao enviar arquivo para Spaces: Fileobj must implement read
+2025-06-11 10:00:03,608 - raiox-api - ERROR - Erro no processamento dos resultados: Fileobj must implement read
+2025-06-11 10:00:29,228 - raiox-api - INFO - === TRACKING INFO ===
+2025-06-11 10:00:29,228 - raiox-api - INFO - Análise ID: 251612149823657_1a0e49_21
+2025-06-11 10:00:29,228 - raiox-api - INFO - Submission ID: 251612149823657
+2025-06-11 10:00:29,228 - raiox-api - INFO - Dentista: 
+2025-06-11 10:00:29,228 - raiox-api - INFO - Email: joao.silva@teste.com
+2025-06-11 10:00:29,228 - raiox-api - INFO - Paciente: Maria Santos
+2025-06-11 10:00:29,229 - raiox-api - INFO - Dente: 21
+2025-06-11 10:00:29,229 - raiox-api - INFO - Timestamp: 20250611_100029
+2025-06-11 10:00:29,229 - raiox-api - INFO - =====================
+2025-06-11 10:00:29,229 - raiox-api - ERROR - Erro ao enviar arquivo para Spaces: Fileobj must implement read
+2025-06-11 10:00:29,229 - raiox-api - ERROR - Erro no processamento dos resultados: Fileobj must implement read
+2025-06-11 10:01:51,066 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 10:01:54,607 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 10:01:54,793 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 10:02:25,383 - raiox-api - INFO - === TRACKING INFO ===
+2025-06-11 10:02:25,383 - raiox-api - INFO - Análise ID: 251612149823657_1a0e49_21
+2025-06-11 10:02:25,383 - raiox-api - INFO - Submission ID: 251612149823657
+2025-06-11 10:02:25,383 - raiox-api - INFO - Dentista: 
+2025-06-11 10:02:25,383 - raiox-api - INFO - Email: joao.silva@teste.com
+2025-06-11 10:02:25,384 - raiox-api - INFO - Paciente: Maria Santos
+2025-06-11 10:02:25,384 - raiox-api - INFO - Dente: 21
+2025-06-11 10:02:25,384 - raiox-api - INFO - Timestamp: 20250611_100225
+2025-06-11 10:02:25,384 - raiox-api - INFO - =====================
+2025-06-11 10:02:25,535 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/raiox_251612149823657_1a0e49_21_20250611_100225.jpg
+2025-06-11 10:02:25,535 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/raiox_251612149823657_1a0e49_21_20250611_100225.jpg
+2025-06-11 10:02:25,797 - raiox-api - INFO - Imagem processada com CLIP
+2025-06-11 10:02:25,798 - raiox-api - ERROR - Erro no processamento dos resultados: name 'db' is not defined
+2025-06-11 10:07:47,829 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 10:07:51,205 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 10:07:51,408 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 10:08:42,913 - raiox-api - INFO - === JOTFORM RESULTADOS - RECEBENDO DADOS ===
+2025-06-11 10:08:42,914 - raiox-api - INFO - Dados recebidos: {'analise_id': '12345_a1b2c3_21', 'submission_id': '251612149823657', 'dados_caso': {'dentista': {'nome': 'Cristiano Siqueira Pires', 'email': 'cristianosiqueirapires@gmail.com'}, 'caso': {'paciente': 'Paciente Teste', 'dente': '21', 'imagem_url': 'https://spaces.url/raiox_12345_20250611.jpg'}}, 'implantes_similares': [{'name': 'Nobel Biocare Implant Model X', 'brand': 'Nobel Biocare', 'thread': '1.25mm', 'similarity': 0.925, 'id': 1}, {'name': 'Straumann Implant Model Y', 'brand': 'Straumann', 'thread': '1.5mm', 'similarity': 0.873, 'id': 2}, {'name': 'Zimmer Biomet Model Z', 'brand': 'Zimmer Biomet', 'thread': '1.0mm', 'similarity': 0.756, 'id': 3}], 'timestamp': '2025-06-11T10:08:00'}
+2025-06-11 10:08:42,915 - raiox-api - ERROR - Erro ao enviar para Jotform: name 'requests' is not defined
+2025-06-11 10:08:42,916 - raiox-api - INFO - === RESULTADOS ENVIADOS PARA JOTFORM ===
+2025-06-11 11:14:22,248 - raiox-api - INFO - === JOTFORM RESULTADOS - RECEBENDO DADOS ===
+2025-06-11 11:14:22,249 - raiox-api - INFO - Dados recebidos: {'test': 'ping'}
+2025-06-11 11:14:22,249 - raiox-api - ERROR - Erro ao enviar para Jotform: name 'requests' is not defined
+2025-06-11 11:14:22,249 - raiox-api - INFO - === RESULTADOS ENVIADOS PARA JOTFORM ===
+2025-06-11 11:39:47,634 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 11:39:50,591 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 11:39:50,752 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 15:12:46,671 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 15:12:50,362 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 15:12:50,541 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:00:41,756 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:00:45,251 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:00:45,437 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:42:53,306 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:42:56,567 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:42:56,920 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:48:40,033 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:48:43,428 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:48:43,624 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:49:03,725 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:49:07,252 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:49:07,441 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:49:27,328 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:49:30,860 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:49:31,040 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:49:50,409 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:49:53,863 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:49:54,030 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:50:13,854 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:50:17,484 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:50:17,657 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:50:37,925 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:50:41,557 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:50:41,730 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:51:01,363 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:51:04,808 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:51:04,992 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:51:25,069 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:51:28,652 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:51:28,845 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:51:48,677 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:51:52,253 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:51:52,440 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:52:12,015 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:52:15,588 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:52:15,752 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:52:35,496 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:52:38,898 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:52:39,069 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:52:58,775 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:53:02,254 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:53:02,433 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:53:22,054 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:53:25,386 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:53:25,571 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:53:44,830 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:53:47,697 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:53:47,848 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:54:07,915 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:54:11,057 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:54:11,225 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:54:30,726 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:54:33,896 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:54:34,062 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:54:52,706 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:54:55,963 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:54:56,132 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:55:15,191 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:55:18,265 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:55:18,434 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:55:37,537 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:55:40,549 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:55:40,735 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:55:59,710 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:56:02,972 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:56:03,205 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:56:22,531 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:56:26,115 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:56:26,286 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:56:45,006 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:56:47,938 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:56:48,114 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:57:07,705 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:57:11,110 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:57:11,327 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:57:30,746 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:57:34,145 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:57:34,313 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:57:53,432 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:57:56,461 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:57:56,625 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:58:15,873 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:58:19,002 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:58:19,178 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:58:38,888 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:58:42,129 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:58:42,295 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:59:02,128 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:59:05,696 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:59:05,869 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:59:26,014 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:59:29,616 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:59:29,782 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 17:59:49,620 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 17:59:53,156 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 17:59:53,356 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:00:13,965 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:00:17,400 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:00:17,586 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:00:38,442 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:00:41,402 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:00:41,585 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:01:01,228 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:01:04,765 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:01:04,961 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:01:24,233 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:01:27,500 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:01:27,648 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:01:46,771 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:01:50,162 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:01:50,324 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:02:09,832 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:02:13,326 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:02:13,864 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:02:19,352 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:02:22,139 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:02:22,954 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:02:23,679 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:02:25,439 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:02:25,640 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:02:44,752 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:02:48,052 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:02:48,216 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:03:08,413 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:03:11,605 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:03:11,789 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:03:31,107 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:03:34,208 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:03:34,381 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:03:53,721 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:03:56,965 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:03:57,130 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:04:17,706 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:04:21,061 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:04:21,734 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:04:25,347 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:04:28,993 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:04:29,613 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:04:32,134 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:04:35,413 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:04:35,567 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:04:55,130 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:04:58,305 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:04:58,477 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:05:17,589 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:05:20,880 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:05:21,071 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:05:40,778 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:05:44,129 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:05:44,306 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:06:04,141 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:06:07,623 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:06:07,792 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:06:27,567 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:06:31,001 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:06:31,183 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:06:50,735 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:06:54,241 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:06:54,428 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:07:14,525 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:07:17,637 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:07:17,804 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:07:37,744 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:07:41,100 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:07:41,268 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:07:59,958 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:08:03,484 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:08:03,716 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:08:23,568 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:08:27,195 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:08:27,469 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:08:46,847 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:08:50,673 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:08:50,849 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:09:11,393 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:09:14,769 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:09:14,934 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:09:24,421 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:09:27,612 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:09:27,788 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:09:35,129 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:09:38,031 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:09:38,208 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:09:56,783 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:09:59,850 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:10:00,022 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:10:19,579 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:10:23,220 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:10:23,393 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:10:41,629 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:10:44,796 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:10:44,963 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:11:03,254 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:11:06,646 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:11:06,793 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:11:25,344 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:11:28,397 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:11:28,552 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:11:46,949 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:11:50,123 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:11:50,294 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:12:09,699 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:12:12,836 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:12:13,012 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:12:31,729 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:12:34,843 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:12:35,520 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:12:54,660 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:12:57,463 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:12:57,749 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:13:16,779 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:13:19,948 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:13:20,130 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:13:38,365 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:13:41,048 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:13:41,194 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:13:58,974 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:14:02,426 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:14:02,625 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:14:13,304 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:14:16,484 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:14:16,654 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:16:00,988 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:16:04,408 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:16:04,609 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 18:16:15,599 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 18:16:18,633 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 18:16:18,804 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 20:00:28,713 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 20:00:32,524 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 20:00:34,064 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 23:26:51,216 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 23:26:51,216 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-11 23:26:55,668 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 23:26:55,669 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-11 23:26:57,220 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-11 23:26:57,257 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:42:54,917 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:42:58,477 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:42:59,347 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:43:26,913 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:43:27,794 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:43:30,712 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:43:31,551 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:43:32,230 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:43:32,396 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:43:54,817 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:43:58,048 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:43:58,872 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:44:22,540 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:44:26,024 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:44:26,933 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:44:48,073 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:44:50,854 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:44:51,724 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:45:13,609 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:45:16,723 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:45:17,746 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:45:39,039 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:45:42,037 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:45:42,939 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:46:03,879 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:46:06,967 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:46:07,937 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:46:29,614 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:46:32,506 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:46:33,475 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:46:53,708 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:46:56,954 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:46:57,756 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:47:01,167 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:47:04,423 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:47:04,604 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:48:03,659 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:48:06,721 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:48:07,506 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:49:44,343 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:49:47,214 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:49:47,904 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:49:51,557 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:49:54,144 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:49:54,294 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:50:04,510 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:50:07,745 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:50:08,323 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:50:13,377 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:50:16,486 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:50:16,640 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 04:51:06,658 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-12 04:51:09,790 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-12 04:51:09,939 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-12 05:09:27,409 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: null, email: teste@exemplo.com
+2025-06-12 05:09:27,410 - raiox-api - ERROR - Erro no processamento do Jotform: 400: Arquivo deve ser uma imagem
+2025-06-12 05:09:52,402 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: teste_dente.jpg, email: teste@dentista.com
+2025-06-12 05:09:52,525 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/teste_dentista_com/teste_dente.jpg
+2025-06-12 05:09:52,525 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/teste_dentista_com/teste_dente.jpg
+2025-06-12 05:09:52,808 - raiox-api - INFO - Imagem processada com CLIP, buscando implantes similares...
+2025-06-12 05:09:52,858 - raiox-api - INFO - Encontrados 3 implantes similares
+2025-06-12 05:09:52,858 - raiox-api - ERROR - ❌ Erro ao enviar para formulário de resultados: name 'form_data' is not defined
+2025-06-12 05:09:52,858 - raiox-api - INFO - Processamento Jotform concluído para teste_dentista_com - Encontrados 3 implantes similares
+2025-06-12 05:58:01,278 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: teste1_nobel_similar.jpg, email: teste@raioxapi.com
+2025-06-12 05:58:01,420 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/teste_raioxapi_com/teste1_nobel_similar.jpg
+2025-06-12 05:58:01,420 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/teste_raioxapi_com/teste1_nobel_similar.jpg
+2025-06-12 05:58:01,641 - raiox-api - INFO - Imagem processada com CLIP, buscando implantes similares...
+2025-06-12 05:58:01,679 - raiox-api - INFO - Encontrados 3 implantes similares
+2025-06-12 05:58:01,679 - raiox-api - ERROR - ❌ Erro ao enviar para formulário de resultados: name 'form_data' is not defined
+2025-06-12 05:58:01,679 - raiox-api - INFO - Processamento Jotform concluído para teste_raioxapi_com - Encontrados 3 implantes similares
+2025-06-12 05:58:44,519 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: teste2_straumann_diferente.jpg, email: alfredo.batista@clinica.com.br
+2025-06-12 05:58:44,563 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/teste2_straumann_diferente.jpg
+2025-06-12 05:58:44,563 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/teste2_straumann_diferente.jpg
+2025-06-12 05:58:44,722 - raiox-api - INFO - Imagem processada com CLIP, buscando implantes similares...
+2025-06-12 05:58:44,758 - raiox-api - INFO - Encontrados 3 implantes similares
+2025-06-12 05:58:44,758 - raiox-api - ERROR - ❌ Erro ao enviar para formulário de resultados: name 'form_data' is not defined
+2025-06-12 05:58:44,759 - raiox-api - INFO - Processamento Jotform concluído para alfredo_batista_clinica_com_br - Encontrados 3 implantes similares
+2025-06-12 05:59:03,286 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: teste3_multiplos_implantes.jpg, email: alfredo.batista@clinica.com.br
+2025-06-12 05:59:03,316 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/teste3_multiplos_implantes.jpg
+2025-06-12 05:59:03,316 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/teste3_multiplos_implantes.jpg
+2025-06-12 05:59:03,651 - raiox-api - INFO - Imagem processada com CLIP, buscando implantes similares...
+2025-06-12 05:59:03,691 - raiox-api - INFO - Encontrados 3 implantes similares
+2025-06-12 05:59:03,692 - raiox-api - ERROR - ❌ Erro ao enviar para formulário de resultados: name 'form_data' is not defined
+2025-06-12 05:59:03,692 - raiox-api - INFO - Processamento Jotform concluído para alfredo_batista_clinica_com_br - Encontrados 3 implantes similares
+2025-06-12 06:10:12,252 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: implante_teste_1.jpg, email: alfredo.batista@clinica.com.br
+2025-06-12 06:10:12,380 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/implante_teste_1.jpg
+2025-06-12 06:10:12,381 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/implante_teste_1.jpg
+2025-06-12 06:10:12,560 - raiox-api - INFO - Imagem processada com CLIP, buscando implantes similares...
+2025-06-12 06:10:12,599 - raiox-api - INFO - Encontrados 3 implantes similares
+2025-06-12 06:10:12,599 - raiox-api - ERROR - ❌ Erro ao enviar para formulário de resultados: name 'form_data' is not defined
+2025-06-12 06:10:12,599 - raiox-api - INFO - Processamento Jotform concluído para alfredo_batista_clinica_com_br - Encontrados 3 implantes similares
+2025-06-12 06:10:26,531 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: implante_teste_2.png, email: alfredo.batista@clinica.com.br
+2025-06-12 06:10:26,557 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/implante_teste_2.png
+2025-06-12 06:10:26,557 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/implante_teste_2.png
+2025-06-12 06:10:26,705 - raiox-api - INFO - Imagem processada com CLIP, buscando implantes similares...
+2025-06-12 06:10:26,741 - raiox-api - INFO - Encontrados 3 implantes similares
+2025-06-12 06:10:26,741 - raiox-api - ERROR - ❌ Erro ao enviar para formulário de resultados: name 'form_data' is not defined
+2025-06-12 06:10:26,741 - raiox-api - INFO - Processamento Jotform concluído para alfredo_batista_clinica_com_br - Encontrados 3 implantes similares
+2025-06-12 06:10:36,915 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: implante_teste_3.png, email: alfredo.batista@clinica.com.br
+2025-06-12 06:10:36,943 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/implante_teste_3.png
+2025-06-12 06:10:36,944 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/alfredo_batista_clinica_com_br/implante_teste_3.png
+2025-06-12 06:10:37,125 - raiox-api - INFO - Imagem processada com CLIP, buscando implantes similares...
+2025-06-12 06:10:37,162 - raiox-api - INFO - Encontrados 3 implantes similares
+2025-06-12 06:10:37,163 - raiox-api - ERROR - ❌ Erro ao enviar para formulário de resultados: name 'form_data' is not defined
+2025-06-12 06:10:37,163 - raiox-api - INFO - Processamento Jotform concluído para alfredo_batista_clinica_com_br - Encontrados 3 implantes similares
+2025-06-13 02:04:32,689 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: tmpbi3g0jxs.jpg, email: None
+2025-06-13 02:04:32,830 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmpbi3g0jxs.jpg
+2025-06-13 02:04:32,831 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmpbi3g0jxs.jpg
+2025-06-13 02:04:32,832 - raiox-api - ERROR - Erro no processamento do Jotform: cannot identify image file <_io.BytesIO object at 0x7facf3030c70>
+2025-06-13 02:04:33,589 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: tmp2s8m84jl.jpg, email: None
+2025-06-13 02:04:33,623 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmp2s8m84jl.jpg
+2025-06-13 02:04:33,624 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmp2s8m84jl.jpg
+2025-06-13 02:04:33,624 - raiox-api - ERROR - Erro no processamento do Jotform: cannot identify image file <_io.BytesIO object at 0x7fabf060e750>
+2025-06-13 02:04:34,282 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: tmpf27f2crk.jpg, email: None
+2025-06-13 02:04:34,329 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmpf27f2crk.jpg
+2025-06-13 02:04:34,330 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmpf27f2crk.jpg
+2025-06-13 02:04:34,331 - raiox-api - ERROR - Erro no processamento do Jotform: cannot identify image file <_io.BytesIO object at 0x7fabf0646930>
+2025-06-13 02:04:35,437 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: tmp_99vdf6g.jpg, email: None
+2025-06-13 02:04:35,471 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmp_99vdf6g.jpg
+2025-06-13 02:04:35,472 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmp_99vdf6g.jpg
+2025-06-13 02:04:35,472 - raiox-api - ERROR - Erro no processamento do Jotform: cannot identify image file <_io.BytesIO object at 0x7fac12ea9030>
+2025-06-13 02:04:36,210 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: tmplzy3w2kj.jpg, email: None
+2025-06-13 02:04:36,238 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmplzy3w2kj.jpg
+2025-06-13 02:04:36,239 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmplzy3w2kj.jpg
+2025-06-13 02:04:36,239 - raiox-api - ERROR - Erro no processamento do Jotform: cannot identify image file <_io.BytesIO object at 0x7fac0c16b9c0>
+2025-06-13 02:04:36,890 - raiox-api - INFO - Recebendo dados do Jotform - arquivo: tmp9v81ocil.jpg, email: None
+2025-06-13 02:04:36,934 - raiox-api - INFO - Arquivo enviado para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmp9v81ocil.jpg
+2025-06-13 02:04:36,935 - raiox-api - INFO - Imagem enviada para Spaces: https://nyc3.digitaloceanspaces.com/raiox-images/clientes/jotform_user/tmp9v81ocil.jpg
+2025-06-13 02:04:36,935 - raiox-api - ERROR - Erro no processamento do Jotform: cannot identify image file <_io.BytesIO object at 0x7fabf04ebc40>
+2025-06-13 04:46:51,589 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-13 04:46:51,589 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-13 04:46:55,985 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-13 04:46:56,046 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-13 04:46:57,446 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-13 04:46:57,482 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-13 04:54:53,626 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-13 04:54:53,626 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-13 04:54:56,734 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-13 04:54:56,839 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-13 04:54:58,073 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-13 04:54:58,104 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-13 04:57:21,489 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-13 04:57:21,489 - root - INFO - Loaded ViT-B-32 model config.
+2025-06-13 04:57:25,938 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-13 04:57:26,108 - root - INFO - Loading pretrained ViT-B-32 weights (openai).
+2025-06-13 04:57:27,272 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu
+2025-06-13 04:57:27,314 - raiox-api - INFO - Modelo CLIP carregado no dispositivo: cpu

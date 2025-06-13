@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=root
 WorkingDirectory=/opt/raiox-app
-ExecStart=/opt/raiox-app/venv/bin/python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+ExecStart=/bin/bash -c "source /opt/raiox-app/venv/bin/activate && python -m uvicorn app.main:app --host 0.0.0.0 --port 8000"
 Restart=always
 
 [Install]

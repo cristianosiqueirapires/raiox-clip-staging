@@ -1,0 +1,18 @@
+[Unit]
+Description=RAIOXAPI Verificador de Resultados
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/root
+Environment="JOTFORM_API_KEY=db2f42dd2d35776deaccfb9715da840b"
+ExecStart=/usr/bin/python3 /root/agendador_verificador_raioxapi.py --monitor
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/raioxapi-verificador.log
+StandardError=append:/var/log/raioxapi-verificador.log
+
+[Install]
+WantedBy=multi-user.target
+

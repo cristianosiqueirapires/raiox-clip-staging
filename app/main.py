@@ -16,7 +16,11 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 from pydantic import BaseModel
 from typing import List, Optional
+import hashlib
+from datetime import datetime
 import os
+from io import BytesIO
+from app.analise_tracker import AnaliseTracker
 import json
 import logging
 import boto3
@@ -438,6 +442,55 @@ async def jotform_webhook(
                     image_url=implant.image_url
                 ))
         
+        # NOVO: Após processar IA, enviar resultados para formulário de aprovação
+        # NOVO: Após processar IA, enviar resultados para formulário de aprovação
+        try:
+            # Preparar dados para o formulário de resultados
+            dados_para_resultados = {
+                "analise_id": f"{form_data.get('submissionID', 'unknown')}_{client_id}",
+                "submission_id": form_data.get('submissionID', ''),
+                "dados_caso": {
+                    "dentista": {
+                        "nome": nome,
+                        "email": email
+                    },
+                    "caso": {
+                        "paciente": paciente,
+                        "dente": dente,
+                        "imagem_url": spaces_url
+                    }
+                },
+                "implantes_similares": [
+                    {
+                        "name": implant.name if hasattr(implant, "name") else implant.get("name", "N/A"),
+                        "brand": implant.manufacturer if hasattr(implant, "manufacturer") else implant.get("manufacturer", "N/A"),
+                        "thread": implant.type if hasattr(implant, "type") else implant.get("type", "N/A"),
+                        "similarity": getattr(implant, "similarity", 0.85),
+                        "id": implant.id if hasattr(implant, "id") else implant.get("id", 0)
+                    }
+                    for implant in similar_implants[:3]
+                ],
+                "timestamp": datetime.now().isoformat()
+            }
+            
+            # Chamar endpoint de resultados internamente
+            import httpx
+            async with httpx.AsyncClient() as client:
+                resultado_response = await client.post(
+                    "http://localhost:8000/jotform/resultados",
+                    json=dados_para_resultados,
+                    timeout=30.0
+                )
+                
+                if resultado_response.status_code == 200:
+                    logger.info("✅ Resultados enviados para formulário de aprovação com sucesso")
+                else:
+                    logger.error(f"❌ Erro ao enviar resultados para formulário: {resultado_response.status_code}")
+                    
+        except Exception as e:
+            logger.error(f"❌ Erro ao enviar para formulário de resultados: {str(e)}")
+            # Não falha o processo principal se der erro no envio
+
         logger.info(f"Processamento Jotform concluído para {client_id} - Encontrados {len(result)} implantes similares")
         return result
     
@@ -446,7 +499,105 @@ async def jotform_webhook(
         raise HTTPException(status_code=500, detail=f"Erro no processamento: {str(e)}")
 
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# Importar sistema de tracking
+
+@app.post("/jotform/resultados", response_class=JSONResponse)
+@app.post("/jotform/resultados")
+async def jotform_resultados_webhook(request: Request):
+    """
+    Endpoint para RECEBER resultados já processados e enviar para formulário de resultados
+    NÃO processa imagem - apenas formata e envia resultados
+    """
+    try:
+        # Receber dados JSON do webhook original
+        data = await request.json()
+        
+        logger.info("=== JOTFORM RESULTADOS - RECEBENDO DADOS ===")
+        logger.info(f"Dados recebidos: {data}")
+        
+        # Extrair informações dos resultados
+        analise_id = data.get("analise_id")
+        submission_id = data.get("submission_id") 
+        dados_caso = data.get("dados_caso", {})
+        implantes_similares = data.get("implantes_similares", [])
+        
+        # Formatar resultados para o formulário
+        resultado_formatado = format_resultados_para_formulario(implantes_similares, dados_caso)
+        
+        # Criar dados para o formulário de resultados
+        form_data = {
+            "analise_id": analise_id,
+            "submission_id": submission_id,
+            "dentista_nome": dados_caso.get("dentista", {}).get("nome", ""),
+            "dentista_email": dados_caso.get("dentista", {}).get("email", ""),
+            "paciente": dados_caso.get("caso", {}).get("paciente", ""),
+            "dente": dados_caso.get("caso", {}).get("dente", ""),
+            "resultados_ia": resultado_formatado,
+            "total_implantes": len(implantes_similares),
+            "timestamp": data.get("timestamp", "")
+        }
+        
+        # Enviar para formulário de resultados via API Jotform
+        jotform_response = enviar_para_formulario_resultados(form_data)
+        
+        logger.info("=== RESULTADOS ENVIADOS PARA JOTFORM ===")
+        
+        return JSONResponse(content={
+            "status": "success",
+            "message": "Resultados enviados para formulário de aprovação",
+            "analise_id": analise_id,
+            "jotform_response": jotform_response
+        })
+        
+    except Exception as e:
+        logger.error(f"Erro ao processar resultados: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"Erro ao processar resultados: {str(e)}"}
+        )
+
+def format_resultados_para_formulario(implantes, dados_caso):
+    """
+    Formata resultados da IA para exibição no formulário
+    """
+    if not implantes:
+        return "❌ Nenhum implante similar encontrado"
+    
+    resultado = f"🔍 ANÁLISE DE IMPLANTES - {dados_caso.get('caso', {}).get('dente', 'N/A')}\n"
+    resultado += f"👨‍⚕️ Dentista: {dados_caso.get('dentista', {}).get('nome', 'N/A')}\n"
+    resultado += f"👤 Paciente: {dados_caso.get('caso', {}).get('paciente', 'N/A')}\n\n"
+    resultado += "🦷 IMPLANTES SIMILARES ENCONTRADOS:\n"
+    resultado += "=" * 50 + "\n\n"
+    
+    for i, implante in enumerate(implantes[:3], 1):
+        # Extrair dados do implante
+        nome = implante.get("name", "Nome não disponível")
+        marca = implante.get("brand", "Marca não disponível") 
+        rosca = implante.get("thread", "Rosca não disponível")
+        similarity = implante.get("similarity", 0)
+        
+        # Calcular percentual de acurácia
+        acuracia = round(similarity * 100, 1)
+        
+        resultado += f"#{i} - {nome}\n"
+        resultado += f"   🏷️  Marca: {marca}\n"
+        resultado += f"   🔩 Rosca: {rosca}\n"
+        resultado += f"   📊 Acurácia: {acuracia}%\n"
+        
+        # Emoji baseado na acurácia
+        if acuracia >= 90:
+            resultado += f"   ✅ Excelente compatibilidade\n"
+        elif acuracia >= 80:
+            resultado += f"   🟡 Boa compatibilidade\n"
+        else:
+            resultado += f"   🟠 Compatibilidade moderada\n"
+        
+        resultado += "\n"
+    
+    resultado += "=" * 50 + "\n"
+    resultado += "⚠️  IMPORTANTE: Resultados gerados por IA.\n"
+    resultado += "🔍 Sempre validar com análise clínica profissional.\n"
+    
+    return resultado
 

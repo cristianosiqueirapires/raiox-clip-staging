@@ -442,7 +442,55 @@ async def jotform_webhook(
                     image_url=implant.image_url
                 ))
         
-        # NOVO: Após processar IA, enviar resultados para formulário de aprovação\        try:\            # Preparar dados para o formulário de resultados\            dados_para_resultados = {\                "analise_id": f"{form_data.get(\"submissionID\", \"unknown\")}_{client_id}",\                "submission_id": form_data.get(\"submissionID\", \"\"),\                "dados_caso": {\                    "dentista": {\                        "nome": nome,\                        "email": email\                    },\                    "caso": {\                        "paciente": paciente,\                        "dente": dente,\                        "imagem_url": spaces_url\                    }\                },\                "implantes_similares": [\                    {\                        "name": implant.name if hasattr(implant, \"name\") else implant.get(\"name\", \"N/A\"),\                        "brand": implant.manufacturer if hasattr(implant, \"manufacturer\") else implant.get(\"manufacturer\", \"N/A\"),\                        "thread": implant.type if hasattr(implant, \"type\") else implant.get(\"type\", \"N/A\"),\                        "similarity": getattr(implant, \"similarity\", 0.85),\                        "id": implant.id if hasattr(implant, \"id\") else implant.get(\"id\", 0)\                    }\                    for implant in similar_implants[:3]\                ],\                "timestamp": datetime.now().isoformat()\            }\            \            # Chamar endpoint de resultados internamente\            import httpx\            async with httpx.AsyncClient() as client:\                resultado_response = await client.post(\                    "http://localhost:8000/jotform/resultados",\                    json=dados_para_resultados,\                    timeout=30.0\                )\                \                if resultado_response.status_code == 200:\                    logger.info("✅ Resultados enviados para formulário de aprovação com sucesso")\                else:\                    logger.error(f"❌ Erro ao enviar resultados para formulário: {resultado_response.status_code}")\                    \        except Exception as e:\            logger.error(f"❌ Erro ao enviar para formulário de resultados: {str(e)}")\            # Não falha o processo principal se der erro no envio
+        # NOVO: Após processar IA, enviar resultados para formulário de aprovação
+        # NOVO: Após processar IA, enviar resultados para formulário de aprovação
+        try:
+            # Preparar dados para o formulário de resultados
+            dados_para_resultados = {
+                "analise_id": f"{form_data.get('submissionID', 'unknown')}_{client_id}",
+                "submission_id": form_data.get('submissionID', ''),
+                "dados_caso": {
+                    "dentista": {
+                        "nome": nome,
+                        "email": email
+                    },
+                    "caso": {
+                        "paciente": paciente,
+                        "dente": dente,
+                        "imagem_url": spaces_url
+                    }
+                },
+                "implantes_similares": [
+                    {
+                        "name": implant.name if hasattr(implant, "name") else implant.get("name", "N/A"),
+                        "brand": implant.manufacturer if hasattr(implant, "manufacturer") else implant.get("manufacturer", "N/A"),
+                        "thread": implant.type if hasattr(implant, "type") else implant.get("type", "N/A"),
+                        "similarity": getattr(implant, "similarity", 0.85),
+                        "id": implant.id if hasattr(implant, "id") else implant.get("id", 0)
+                    }
+                    for implant in similar_implants[:3]
+                ],
+                "timestamp": datetime.now().isoformat()
+            }
+            
+            # Chamar endpoint de resultados internamente
+            import httpx
+            async with httpx.AsyncClient() as client:
+                resultado_response = await client.post(
+                    "http://localhost:8000/jotform/resultados",
+                    json=dados_para_resultados,
+                    timeout=30.0
+                )
+                
+                if resultado_response.status_code == 200:
+                    logger.info("✅ Resultados enviados para formulário de aprovação com sucesso")
+                else:
+                    logger.error(f"❌ Erro ao enviar resultados para formulário: {resultado_response.status_code}")
+                    
+        except Exception as e:
+            logger.error(f"❌ Erro ao enviar para formulário de resultados: {str(e)}")
+            # Não falha o processo principal se der erro no envio
+
         logger.info(f"Processamento Jotform concluído para {client_id} - Encontrados {len(result)} implantes similares")
         return result
     
@@ -559,7 +607,7 @@ def enviar_para_formulario_resultados(form_data):
     """
     try:
         # URL da API do Jotform para criar submissão
-        form_id = "251488352368668"  # ID do formulário de resultados
+        form_id = "251613664915662"  # ID do formulário de resultados
         url = f"https://api.jotform.com/form/{form_id}/submissions"
         
         # Dados para o formulário

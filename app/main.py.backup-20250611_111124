@@ -559,7 +559,7 @@ def enviar_para_formulario_resultados(form_data):
     """
     try:
         # URL da API do Jotform para criar submissão
-        form_id = "251488352368668"  # ID do formulário de resultados
+        form_id = "251613664915662"  # ID do formulário de resultados
         url = f"https://api.jotform.com/form/{form_id}/submissions"
         
         # Dados para o formulário
